@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "declaration": true
+  },
+  "files": [
+    "src/index.ts",
+    "./node_modules/angular2/typings/browser.d.ts"
+  ]
+}
