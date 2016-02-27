@@ -7,7 +7,7 @@ import { Highcharts } from './Highcharts';
 
 @Component({
     selector: 'chart',
-    template: `<div></div><ng-content></ng-content>`
+    template: ``
 })
 export class BaseChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
@@ -26,7 +26,7 @@ export class BaseChartComponent {
     ngAfterContentInit() {
         console.log('init chart', this.series);
         this.options.chart = this.options.chart || {};
-        this.options.chart.renderTo = this.element.nativeElement.children[0];
+        this.options.chart.renderTo = this.element.nativeElement;
         ChartEventHelper.initEvents(this, this.series, this.series ? this.series.point : null, this.options);
         if (!Highcharts[this.type]) {
             throw new Error(`${this.type} is unknown chart type.`);
