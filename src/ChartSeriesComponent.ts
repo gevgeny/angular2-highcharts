@@ -1,16 +1,21 @@
-import { Component, ElementRef, Input, Output, EventEmitter } from 'angular2/core';
-import { BaseChartComponent } from './BaseChartComponent';
-import { ChartComponent } from './ChartComponent';
+import { Component, ElementRef, Input, Output, EventEmitter, ContentChild } from 'angular2/core';
+//import { BaseChartComponent } from './BaseChartComponent';
+//import { ChartComponent } from './ChartComponent';
+//import { ChartEventWrapper } from './ChartEventWrapper';
+import { ChartPointComponent } from './ChartPointComponent';
+import {Directive} from "angular2/core";
 
-@Component({
-    selector: 'series',
-    template: ''
+@Directive({
+    selector: 'series'
 })
 export class ChartSeriesComponent {
-    constructor() {
-        console.log('ChartSeriesComponent');
-        setInterval(() => this.click.emit("event"), 1000);
-    }
-    @Output('click') click = new EventEmitter();
-
+    @ContentChild(ChartPointComponent) point: ChartPointComponent;
+    @Output() click = new EventEmitter<HighchartsAreaClickEvent>();
+    @Output() afterAnimate = new EventEmitter<Event>();
+    @Output() checkboxClick = new EventEmitter<HighchartsAreaCheckboxEvent>();
+    @Output() hide = new EventEmitter<Event>();
+    @Output() legendItemClick = new EventEmitter<Event>();
+    @Output() mouseOver = new EventEmitter<Event>();
+    @Output() mouseOut = new EventEmitter<Event>();
+    @Output() show = new EventEmitter<Event>();
 }

@@ -25,15 +25,15 @@
     "typescript": "^1.8.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "ts-loader": "^0.7.2"
-  },
-  "dependencies": {
+    "ts-loader": "^0.7.2",
     "angular2": "^2.0.0-beta.6",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "^5.0.0-beta.0",
-    "zone.js": "^0.5.11",
-    "highcharts" : "^4.2.1"
+    "zone.js": "^0.5.11"
+  },
+  "dependencies": {
+
   }
 }

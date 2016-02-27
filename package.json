@@ -3,9 +3,8 @@
   "version": "0.0.1",
   "description": "Highcharts for your Angular2 project",
   "scripts": {
-    "watch": "ntsc -p ./ -w",
-    "build": "rm -rf dist && node ./node_modules/typescript/bin/tsc && rm -rf ./examples/lib && mkdir -p ./examples/lib && cp -R dist ./examples/lib && cp -R typings ./examples/lib && cp index.js ./examples/lib && cp index.d.ts ./examples/lib && cp package.json ./examples/lib",
-    "copy" : "mkdir -p ./examples/lib && cp -R dist ./lib && cp index.js ./examples/lib && cp index.d.ts ./examples/lib && cp package.json ./examples/lib"
+    "watch": "ntsc -w",
+    "build": "rm -rf dist && node ./node_modules/typescript/bin/tsc"
   },
   "repository": {
     "type": "git",
@@ -30,8 +29,7 @@
     "es6-promise" : "^3.0.2",
     "rxjs": "^5.0.0-beta.0",
     "reflect-metadata": "0.1.2",
-    "zone.js": "^0.5.11",
-    "highcharts" : "^4.2.1"
+    "zone.js": "^0.5.11"
   },
   "dependencies": {
 

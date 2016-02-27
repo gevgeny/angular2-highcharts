@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
     entry: "./src/app.ts",
     output: {
@@ -5,6 +7,10 @@ module.exports = {
     },
     //devtool: 'source-map',
     resolve: {
+        alias: {
+            //highcharts: '../node_modules/highcharts'
+        },
+    //{ 'angular2/core' : "../../node_modules/angular2/core.d.ts" },
         extensions: ['', '.webpack.js', '.web.js', '.ts',  '.js']
     },
     module: {
