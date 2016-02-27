@@ -1,12 +1,17 @@
-///<reference path="../typings/highcharts.d.ts"/>
-
-import { Input, ElementRef, Injectable, Output, EventEmitter, ContentChild } from 'angular2/core';
+/// <reference path="../typings/highcharts.d.ts" />
+import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from 'angular2/core';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartEventHelper } from './ChartEventHelper';
+import { Highcharts } from './Highcharts';
 //import { ChartEventWrapper } from './ChartEventWrapper';
 
+@Component({
+    selector: 'chart',
+    template: `<div></div><ng-content></ng-content>`
+})
 export class BaseChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
+    @Input() type: string = 'Chart';
     @Input() options: HighchartsOptions;
     @Output() click = new EventEmitter<HighchartsChartClickEvent>();
     @Output() addSeries = new EventEmitter<HighchartsAddSeriesEvent>();
@@ -17,31 +22,21 @@ export class BaseChartComponent {
     @Output() load = new EventEmitter<Event>();
     @Output() redraw = new EventEmitter<Event>();
     @Output() selection = new EventEmitter<HighchartsChartSelectionEvent>();
-//
-    //ngAfterContentInit() {
-    //    console.log('series', this.series);
-    //}
+
     ngAfterContentInit() {
         console.log('init chart', this.series);
         this.options.chart = this.options.chart || {};
         this.options.chart.renderTo = this.element.nativeElement.children[0];
-        ChartEventHelper.setChartEvents(this, this.options);
-        if (this.series) {
-            ChartEventHelper.setSeriesEvents(this.series, this.options);
+        ChartEventHelper.initEvents(this, this.series, this.series ? this.series.point : null, this.options);
+        if (!Highcharts[this.type]) {
+            throw new Error(`${this.type} is unknown chart type.`);
         }
-        if (this.series.point) {
-            ChartEventHelper.setPointEvents(this.series.point, this.options);
-        }
-        this.chart = new this.chartConstructor(this.options);
+        this.chart = new Highcharts[this.type](this.options);
     }
-
 
     chart: HighchartsChartObject;
-    chartConstructor: any;
     element: ElementRef;
-    protected initChart(opts: HighchartsOptions) {
 
-    }
     constructor(element: ElementRef) {
         this.element = element;
     }

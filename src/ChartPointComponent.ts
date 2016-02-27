@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, Output, EventEmitter } from 'angular2/core';
 import { BaseChartComponent } from './BaseChartComponent';
-import { ChartComponent } from './ChartComponent';
 import {Directive} from "angular2/core";
 //import { ChartEventWrapper } from './ChartEventWrapper';
 

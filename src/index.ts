@@ -1,6 +1,17 @@
-export { ChartComponent } from './ChartComponent';
-export { StockChartComponent } from './StockChartComponent';
-export { MapChartComponent } from './MapChartComponent';
-export { ChartSeriesComponent } from './ChartSeriesComponent';
-export { ChartPointComponent } from './ChartPointComponent';
-//export { ChartEventWrapper } from './ChartEventWrapper';
+import { CONST_EXPR } from 'angular2/src/facade/lang';
+
+
+import { BaseChartComponent } from './BaseChartComponent';
+export { BaseChartComponent }
+import { ChartSeriesComponent } from './ChartSeriesComponent';
+export { ChartSeriesComponent };
+import { ChartPointComponent } from './ChartPointComponent';
+export { ChartPointComponent };
+import { Highcharts } from './Highcharts';
+export { Highcharts };
+
+export const CHART_DIRECTIVES: any[] = CONST_EXPR([
+    BaseChartComponent,
+    ChartSeriesComponent,
+    ChartPointComponent
+]);

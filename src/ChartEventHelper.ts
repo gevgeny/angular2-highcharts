@@ -1,6 +1,5 @@
 import { Input, ElementRef, Injectable, Output, EventEmitter, ContentChild } from 'angular2/core';
 import { BaseChartComponent } from './BaseChartComponent';
-//import { ChartEventWrapper } from './ChartEventWrapper';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartPointComponent } from './ChartPointComponent';
 
@@ -39,9 +38,23 @@ const pointEvents = [
 
 export class ChartEventHelper {
     /**
-     * Sets options.chart.events
+     * Inits all chart events
      * */
-    static setChartEvents(chartCmp : BaseChartComponent, opts : any) {
+    static initEvents (chartCmp : BaseChartComponent,
+                       seriesCmp : ChartSeriesComponent,
+                       pointCmp : ChartPointComponent, opts : any) {
+        ChartEventHelper.initChartEvents(chartCmp, opts);
+        if (seriesCmp) {
+            ChartEventHelper.initSeriesEvents(seriesCmp, opts);
+        }
+        if (pointCmp) {
+            ChartEventHelper.initPointEvents(pointCmp, opts);
+        }
+    }
+    /**
+     * Inits options.chart.events
+     * */
+    private static initChartEvents(chartCmp : BaseChartComponent, opts : any) {
         opts.chart.events = opts.chart.events || {};
         chartEvents.forEach(function (eventName) {
             opts.chart.events[eventName] = opts.chart.events[eventName] || function (event: any) {
@@ -50,9 +63,9 @@ export class ChartEventHelper {
         });
     }
     /**
-     * Sets options.plotOptions.series.events
+     * Inits options.plotOptions.series.events
      * */
-    static setSeriesEvents(seriesCmp : ChartSeriesComponent, opts : any) {
+    static initSeriesEvents(seriesCmp : ChartSeriesComponent, opts : any) {
         opts.plotOptions = opts.plotOptions || {};
         opts.plotOptions.series = opts.plotOptions.series || {};
         opts.plotOptions.series.events = opts.plotOptions.series.events || {};
@@ -63,9 +76,9 @@ export class ChartEventHelper {
         });
     }
     /**
-     * Sets options.plotOptions.series.events
+     * Inits options.plotOptions.series.events
      * */
-    static setPointEvents(pointCmp : ChartPointComponent, opts : any) {
+    static initPointEvents(pointCmp : ChartPointComponent, opts : any) {
         opts.plotOptions = opts.plotOptions || {};
         opts.plotOptions.series = opts.plotOptions.series || {};
         opts.plotOptions.series.point = opts.plotOptions.series.point || {};
