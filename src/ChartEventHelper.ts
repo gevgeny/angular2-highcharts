@@ -2,6 +2,7 @@ import { Input, ElementRef, Injectable, Output, EventEmitter, ContentChild } fro
 import { BaseChartComponent } from './BaseChartComponent';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartPointComponent } from './ChartPointComponent';
+import { ChartEvent } from './ChartEvent';
 
 const chartEvents = [
     //'click',
@@ -58,7 +59,7 @@ export class ChartEventHelper {
         opts.chart.events = opts.chart.events || {};
         chartEvents.forEach(function (eventName) {
             opts.chart.events[eventName] = opts.chart.events[eventName] || function (event: any) {
-                chartCmp[eventName].emit(event);
+                chartCmp[eventName].emit(new ChartEvent(event, this));
             }
         });
     }
@@ -71,7 +72,7 @@ export class ChartEventHelper {
         opts.plotOptions.series.events = opts.plotOptions.series.events || {};
         seriesEvents.forEach(function (eventName) {
             opts.plotOptions.series.events[eventName] = opts.plotOptions.series.events[eventName] || function (event: any) {
-                    seriesCmp[eventName].emit(event);
+                    seriesCmp[eventName].emit(new ChartEvent(event, this));
             }
         });
     }
@@ -85,7 +86,7 @@ export class ChartEventHelper {
         opts.plotOptions.series.point.events = opts.plotOptions.series.point.events || {};
         pointEvents.forEach(function (eventName) {
             opts.plotOptions.series.point.events[eventName] = opts.plotOptions.series.point.events[eventName] || function (event: any) {
-                    pointCmp[eventName].emit(event);
+                    pointCmp[eventName].emit(new ChartEvent(event, this));
             }
         });
     }

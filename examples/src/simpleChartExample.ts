@@ -7,13 +7,7 @@ import { CHART_DIRECTIVES } from '../../index';
     template: `
         <h3>simple chart</h3>
         <div>
-            <chart [options]="options">
-            <series (click)="onSeriesClick($event)"
-                        (mouseOver)="onMouseOver($event)">
-                        <point (select)="onPointSelect($event)"
-                            (click)="onPointClick($event)">
-                       </point>
-                </series></chart>
+            <chart [options]="options"></chart>
         </div>
     `
 })

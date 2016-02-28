@@ -1,27 +1,27 @@
 /// <reference path="../typings/highcharts.d.ts" />
-import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from 'angular2/core';
+import { Input, ElementRef, Directive, Output, EventEmitter, ContentChild } from 'angular2/core';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartEventHelper } from './ChartEventHelper';
 import { Highcharts } from './Highcharts';
+import { ChartEvent } from './ChartEvent';
 //import { ChartEventWrapper } from './ChartEventWrapper';
 
-@Component({
-    selector: 'chart',
-    template: ``
+@Directive({
+    selector: 'chart'
 })
 export class BaseChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
     @Input() type: string = 'Chart';
     @Input() options: HighchartsOptions;
-    @Output() click = new EventEmitter<HighchartsChartClickEvent>();
-    @Output() addSeries = new EventEmitter<HighchartsAddSeriesEvent>();
-    @Output() afterPrint = new EventEmitter<Event>();
-    @Output() beforePrint = new EventEmitter<Event>();
-    @Output() drilldown = new EventEmitter<HighchartsChartDrilldownEvent>();
-    @Output() drillup = new EventEmitter<Event>();
-    @Output() load = new EventEmitter<Event>();
-    @Output() redraw = new EventEmitter<Event>();
-    @Output() selection = new EventEmitter<HighchartsChartSelectionEvent>();
+    @Output() click = new EventEmitter<ChartEvent>();
+    @Output() addSeries = new EventEmitter<ChartEvent>();
+    @Output() afterPrint = new EventEmitter<ChartEvent>();
+    @Output() beforePrint = new EventEmitter<ChartEvent>();
+    @Output() drilldown = new EventEmitter<ChartEvent>();
+    @Output() drillup = new EventEmitter<ChartEvent>();
+    @Output() load = new EventEmitter<ChartEvent>();
+    @Output() redraw = new EventEmitter<ChartEvent>();
+    @Output() selection = new EventEmitter<ChartEvent>();
 
     ngAfterContentInit() {
         console.log('init chart', this.series);
