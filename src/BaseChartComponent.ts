@@ -1,18 +1,20 @@
 /// <reference path="../typings/highcharts.d.ts" />
-import { Input, ElementRef, Directive, Output, EventEmitter, ContentChild } from 'angular2/core';
-import { ChartSeriesComponent } from './ChartSeriesComponent';
-import { ChartEventHelper } from './ChartEventHelper';
-import { Highcharts } from './Highcharts';
-import { ChartEvent } from './ChartEvent';
-//import { ChartEventWrapper } from './ChartEventWrapper';
+/// <reference path="../node_modules/angular2/typings/browser.d.ts"" />
 
-@Directive({
-    selector: 'chart'
+import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from 'angular2/core';
+import { ChartSeriesComponent } from './ChartSeriesComponent';
+
+import { ChartEvent } from './ChartEvent';
+import { initChart } from './initChart';
+import {createBaseOpts} from "./createBaseOpts";
+
+@Component({
+    selector: 'chart',
+    template: ''
 })
 export class BaseChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
-    @Input() type: string = 'Chart';
-    @Input() options: HighchartsOptions;
+    @Output() create = new EventEmitter<HighchartsChartObject>();
     @Output() click = new EventEmitter<ChartEvent>();
     @Output() addSeries = new EventEmitter<ChartEvent>();
     @Output() afterPrint = new EventEmitter<ChartEvent>();
@@ -22,23 +24,31 @@ export class BaseChartComponent {
     @Output() load = new EventEmitter<ChartEvent>();
     @Output() redraw = new EventEmitter<ChartEvent>();
     @Output() selection = new EventEmitter<ChartEvent>();
-
-    ngAfterContentInit() {
-        console.log('init chart', this.series);
-        this.options.chart = this.options.chart || {};
-        this.options.chart.renderTo = this.element.nativeElement;
-        ChartEventHelper.initEvents(this, this.series, this.series ? this.series.point : null, this.options);
-        if (!Highcharts[this.type]) {
-            throw new Error(`${this.type} is unknown chart type.`);
-        }
-        this.chart = new Highcharts[this.type](this.options);
-    }
-
     chart: HighchartsChartObject;
     element: ElementRef;
+    private userOpts: any;
+    private baseOpts: any;
+    @Input() type: string = 'Chart';
+    @Input() set options(opts : HighchartsOptions) {
+        this.userOpts = opts;
+        this.init();
+    };
+
+    private init() {
+        if (this.userOpts && this.baseOpts) {
+            this.chart = initChart(this.userOpts, this.baseOpts, this.type);
+            this.create.emit(this.chart);
+        }
+    }
+
+    ngAfterViewInit() {
+        console.log('ngAfterViewChecked');
+        this.baseOpts = createBaseOpts(this, this.series, this.series ? this.series.point : null, this.element.nativeElement);
+        console.log('base opts', this.baseOpts);
+        this.init();
+    }
 
     constructor(element: ElementRef) {
         this.element = element;
     }
-
 }
