@@ -1,21 +1,18 @@
 import {Component} from '../../node_modules/angular2/core';
 import { CHART_DIRECTIVES } from '../../index';
 
-
 @Component({
     selector: 'dynamic-chart-example',
     directives: [CHART_DIRECTIVES],
     template: `
-        <h3>chart with dynamic data</h3>
-        <div>
-            <chart [options]="options" (load)="saveInstance($event.context)"></chart>
-            <button (click)="addPoint()">Add Point</button>
-        </div>
+        <chart [options]="options" (load)="saveInstance($event.context)"></chart>
+        <button (click)="addPoint()">Add Point</button>
     `
 })
 export class DynamicChartExample {
     constructor() {
         this.options = {
+            title: { text : 'chart with dynamic data' },
             series: [{
                 data: [2,3,5,8]
             }]
