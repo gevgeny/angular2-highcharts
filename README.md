@@ -71,6 +71,37 @@ export class ChartEventsExample {
 }
 ```
 
+#### Series events 
+
+The [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) are available as output properties of the `series` component.
+
+```TypeScript
+@Component({
+    selector: 'chart-events-example',
+    directives: [CHART_DIRECTIVES],
+    template: `
+        <chart [options]="options">
+            <series (mouseOver)="onSeriesMouseOver($event)">
+            </series>
+        </chart>
+    `
+})
+export class ChartEventsExample {
+    constructor() {
+        this.options = {
+            title : { text : 'chart events example' },
+            series: [{
+                data: [29.9, 71.5, 106.4, 148.5, 216.4, 194.1, 95.6, 54.4],
+            }]
+        };
+    }
+    options: Object;
+    onSeriesMouseOver (e) {
+        console.log('onSeriesMouseOver', e.originalEvent, e.context);
+    }
+}
+```
+
 ### Highstock and Highmaps
 The `type` property allows you to specify chart type. Possible values are:
 * `Chart` (Default value)
