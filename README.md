@@ -90,7 +90,7 @@ onPointSelect (e) {
 ```
 ### Dynamically modifying the chart
 
-angular2-higcharts provide possbility to interact with native `HighchartsObject` chart object.
+angular2-higcharts provides possbility to interact with native `HighchartsChartObject` chart object. To use highchart native types you need to ref to [Highcharts Typings](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/highcharts/highcharts.d.ts)
 
 ```TypeScript 
 @Component({
