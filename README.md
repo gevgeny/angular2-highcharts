@@ -1,7 +1,6 @@
 # angular2-highcharts
 Angular2 charting components based on Highcharts
 
-## [Live demo](http://gevgeny.github.io/angular2-highcharts)
 
 ## Quick Start
 
@@ -148,7 +147,9 @@ export class StockChartExample {
     }
     options: Object;
 }
-
 ```
+
+## License
+MIT
 
 
