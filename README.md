@@ -38,6 +38,8 @@ export class SimpleChartExample {
     options: Object;
 }
 ```
+
+
 ### Handling events
 Highcharts provides bunch of events, and you can use them via the `options` property of the `chart` component. But it is not an angular2 way to handle events such way. So that angular2-higcharts provides `Observable` wrappers for highcharts events.
 
@@ -45,29 +47,12 @@ Highcharts provides bunch of events, and you can use them via the `options` prop
 
 All the events from the [options.chart.events](http://api.highcharts.com/highcharts#chart.events) are available as output properties of the `chart` component.
 
+```HTML
+<chart [options]="options" (selection)="onChartSelection($event)"> </chart>
+```
 ```TypeScript
-@Component({
-    selector: 'chart-events-example',
-    directives: [CHART_DIRECTIVES],
-    template: `
-        <chart [options]="options" (selection)="onChartSelection($event)"> </chart>
-    `
-})
-export class ChartEventsExample {
-    constructor() {
-        this.options = {
-            title : { text : 'chart events example' },
-            chart: { zoomType: 'x'},
-            series: [{
-                data: [29.9, 71.5, 106.4, 148.5, 216.4, 194.1, 95.6, 54.4],
-                allowPointSelect: true
-            }]
-        };
-    }
-    options: Object;
-    onChartSelection (e) {
-        console.log('onChartSelection', e.originalEvent, e.context);
-    }
+onChartSelection (e) {
+    console.log('onChartSelection', e.originalEvent, e.context);
 }
 ```
 
@@ -75,30 +60,32 @@ export class ChartEventsExample {
 
 The [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) are available as output properties of the `series` component.
 
+```HTML
+<chart [options]="options">
+    <series (mouseOver)="onSeriesMouseOver($event)">
+    </series>
+</chart>
+```
 ```TypeScript
-@Component({
-    selector: 'chart-events-example',
-    directives: [CHART_DIRECTIVES],
-    template: `
-        <chart [options]="options">
-            <series (mouseOver)="onSeriesMouseOver($event)">
-            </series>
-        </chart>
-    `
-})
-export class ChartEventsExample {
-    constructor() {
-        this.options = {
-            title : { text : 'chart events example' },
-            series: [{
-                data: [29.9, 71.5, 106.4, 148.5, 216.4, 194.1, 95.6, 54.4],
-            }]
-        };
-    }
-    options: Object;
-    onSeriesMouseOver (e) {
-        console.log('onSeriesMouseOver', e.originalEvent, e.context);
-    }
+onSeriesMouseOver (e) {
+    console.log('onSeriesMouseOver', e.originalEvent, e.context);
+}
+```
+
+#### Point events 
+
+The [options.plotOptions.series.point.events](http://api.highcharts.com/highcharts#plotOptions.series.point.events) are available as output properties of the `point` component.
+
+```HTML
+<chart [options]="options">
+    <series>
+        <point (select)="onPointSelect($event)"></point>
+    </series>
+</chart>
+```
+```TypeScript
+onPointSelect (e) {
+    console.log('onPointSelect', e.originalEvent, e.context);
 }
 ```
 
@@ -109,10 +96,6 @@ The `type` property allows you to specify chart type. Possible values are:
 * `Map` (To use this type you need to load the 'highcharts/modules/map' module additionally.)
 
 ```TypeScript
-import {Component} from '../../node_modules/angular2/core';
-import { CHART_DIRECTIVES } from '../../index';
-import { Jsonp } from '../../node_modules/angular2/http';
-
 @Component({
     selector: 'stock-chart-example',
     directives: [CHART_DIRECTIVES],
