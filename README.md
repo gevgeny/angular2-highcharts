@@ -88,7 +88,37 @@ onPointSelect (e) {
     console.log('onPointSelect', e.originalEvent, e.context);
 }
 ```
+### Dynamically modifying the chart
 
+angular2-higcharts provide possbility to interact with native `HighchartsObject` chart object.
+
+```TypeScript 
+@Component({
+    selector: 'dynamic-chart-example',
+    directives: [CHART_DIRECTIVES],
+    template: `
+        <chart [options]="options" (load)="saveInstance($event.context)"></chart>
+        <button (click)="addPoint()">Add Point</button>
+    `
+})
+export class DynamicChartExample {
+    constructor() {
+        this.options = {
+            series: [{
+                data: [2,3,5,8]
+            }]
+        }
+    }
+    chart : HighchartsChartObject;
+    options: HighchartsOptions;
+    saveInstance(chartInstance) {
+        this.chart = chartInstance;
+    }
+    addPoint() {
+        this.chart.series[0].addPoint(Math.random() * 10);
+    }
+}
+```
 ### Highstock and Highmaps
 The `type` property allows you to specify chart type. Possible values are:
 * `Chart` (Default value)
