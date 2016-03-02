@@ -6,13 +6,13 @@ import { ChartSeriesComponent } from './ChartSeriesComponent';
 
 import { ChartEvent } from './ChartEvent';
 import { initChart } from './initChart';
-import {createBaseOpts} from "./createBaseOpts";
+import { createBaseOpts } from "./createBaseOpts";
 
 @Component({
     selector: 'chart',
     template: ''
 })
-export class BaseChartComponent {
+export class ChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
     @Output() create = new EventEmitter<HighchartsChartObject>();
     @Output() click = new EventEmitter<ChartEvent>();

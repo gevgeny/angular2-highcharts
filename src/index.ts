@@ -1,8 +1,8 @@
 import { CONST_EXPR } from 'angular2/src/facade/lang';
 
 
-import { BaseChartComponent } from './BaseChartComponent';
-export { BaseChartComponent }
+import { ChartComponent } from './ChartComponent';
+export { ChartComponent }
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 export { ChartSeriesComponent };
 import { ChartPointComponent } from './ChartPointComponent';
@@ -11,7 +11,7 @@ import { Highcharts } from './Highcharts';
 export { Highcharts };
 
 export const CHART_DIRECTIVES: any[] = CONST_EXPR([
-    BaseChartComponent,
+    ChartComponent,
     ChartSeriesComponent,
     ChartPointComponent
 ]);

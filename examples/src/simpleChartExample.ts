@@ -5,18 +5,15 @@ import { CHART_DIRECTIVES } from '../../index';
     selector: 'simple-chart-example',
     directives: [CHART_DIRECTIVES],
     template: `
-        <h3>simple chart</h3>
-        <div>
-            <chart [options]="options"></chart>
-        </div>
+        <chart [options]="options"></chart>
     `
 })
 export class SimpleChartExample {
     constructor() {
         this.options = {
+            title : { text : 'simple chart' },
             series: [{
-                data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-                type: "line",
+                data: [29.9, 71.5, 106.4, 129.2],
             }]
         };
     }

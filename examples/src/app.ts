@@ -14,10 +14,10 @@ import { DynamicChartExample } from './dynamicChartExample';
     directives: [SimpleChartExample, ChartEventsExample, StockChartExample, DynamicChartExample],
     template: `
         <h2>angular2-highcharts examples</h2>
-        <!--<simple-chart-example></simple-chart-example>-->
+        <simple-chart-example></simple-chart-example>
         <!--<chart-events-example></chart-events-example>-->
         <!--<stock-chart-example></stock-chart-example>-->
-        <dynamic-chart-example></dynamic-chart-example>
+        <!--<dynamic-chart-example></dynamic-chart-example>-->
     `
 })
 export class App { }
