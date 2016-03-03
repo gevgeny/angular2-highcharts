@@ -1,5 +1,6 @@
 # angular2-highcharts
-Angular2 charting components based on Highcharts
+Angular2 charting components based on Highcharts.
+[Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
 
 
 ## Quick Start
@@ -148,6 +149,7 @@ export class StockChartExample {
     options: Object;
 }
 ```
+[Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
 
 ## License
 MIT
