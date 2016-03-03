@@ -41,7 +41,7 @@ export class SimpleChartExample {
 [Live Demo](http://plnkr.co/edit/IuwjpPB1YQW1T7i4B8SZ?p=preview)
 
 ### Handling events
-Highcharts provides bunch of events, and you can use them via the `options` property of the `chart` component. But it is not an angular2 way to handle events such way. So that angular2-higcharts provides `Observable` wrappers for highcharts events.
+Highcharts itself provides bunch of events, and you still can use them with angular2-higcharts via the `options` property of the `chart` component. But it is not an angular2 way to handle events like this. So that angular2-higcharts provides `EventEmitter<ChartEvent>` wrappers for highcharts events. `ChartEvent` is an angular2-higcharts class which simply wraps original Highcharts events (`chartEvent.originalEvent`) and adds event handler context (`chartEvent.context`) since it differs depending on events.
 
 #### Chart events 
 
@@ -52,9 +52,8 @@ All the events from the [options.chart.events](http://api.highcharts.com/highcha
 ```
 ```TypeScript
 onChartSelection (e) {
-  let from = e.originalEvent.xAxis[0].min;
-  let to = e.originalEvent.xAxis[0].max;
-  alert(`chart selection from ${from.toFixed(2)} to ${to.toFixed(2)}`);
+  this.from = e.originalEvent.xAxis[0].min.toFixed(2);
+  this.to = e.originalEvent.xAxis[0].max.toFixed(2);
 }
 ```
 [Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
