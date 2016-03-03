@@ -60,36 +60,39 @@ onChartSelection (e) {
 [Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
 #### Series events 
 
-The [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) are available as output properties of the `series` component.
+To use series events the same way you need to add the `series` component as a child of your chart. The only purpose of this auxiliary component is to provide access to [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) API
 
 ```HTML
 <chart [options]="options">
     <series (mouseOver)="onSeriesMouseOver($event)">
     </series>
 </chart>
+<p><b>{{serieName}}</b> is hovered<p>
 ```
 ```TypeScript
 onSeriesMouseOver (e) {
-    console.log('onSeriesMouseOver', e.originalEvent, e.context);
+  this.serieName = e.context.name;
 }
 ```
-
+[Live Demo](http://plnkr.co/edit/GkaJlk2UJjbTwsPyGXGC?p=preview)
 #### Point events 
 
-The [options.plotOptions.series.point.events](http://api.highcharts.com/highcharts#plotOptions.series.point.events) are available as output properties of the `point` component.
-
+Similary you can use the `point` to access to [options.plotOptions.series.point.events](http://api.highcharts.com/highcharts#plotOptions.series.point.events) API.
 ```HTML
 <chart [options]="options">
     <series>
         <point (select)="onPointSelect($event)"></point>
     </series>
 </chart>
+<p><b>{{point}}</b> is selected<p>
+
 ```
 ```TypeScript
 onPointSelect (e) {
-    console.log('onPointSelect', e.originalEvent, e.context);
+  this.serieName = e.context.y;
 }
 ```
+[Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
 ### Access to the Highcharts chart object
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
