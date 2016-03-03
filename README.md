@@ -38,7 +38,7 @@ export class SimpleChartExample {
     options: Object;
 }
 ```
-
+[Live Demo](http://plnkr.co/edit/IuwjpPB1YQW1T7i4B8SZ?p=preview)
 
 ### Handling events
 Highcharts provides bunch of events, and you can use them via the `options` property of the `chart` component. But it is not an angular2 way to handle events such way. So that angular2-higcharts provides `Observable` wrappers for highcharts events.
