@@ -88,9 +88,9 @@ onPointSelect (e) {
     console.log('onPointSelect', e.originalEvent, e.context);
 }
 ```
-### Dynamically modifying the chart
+### Access to the Highcharts chart object
 
-angular2-higcharts provides possbility to interact with native `HighchartsChartObject` chart object. To use highchart native types you need to ref to [Highcharts Typings](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/highcharts/highcharts.d.ts)
+angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
 
 ```TypeScript 
 @Component({
@@ -109,8 +109,8 @@ export class DynamicChartExample {
             }]
         }
     }
-    chart : HighchartsChartObject;
-    options: HighchartsOptions;
+    chart : Object;
+    options: Object;
     saveInstance(chartInstance) {
         this.chart = chartInstance;
     }
@@ -119,6 +119,17 @@ export class DynamicChartExample {
     }
 }
 ```
+### Access to the Highcharts static members
+angular2-highcharts exports native `Highcharts` object to interact with its static members.
+```TypeScript
+import { Highcharts } from 'angular2-highcharts';
+
+Highcharts.setOptions({
+  colors: ['#058DC7', '#50B432', '#ED561B']
+});
+```
+[Live Demo](http://plnkr.co/edit/UREjbP8Ij9983H3zJTZs?p=preview)
+
 ### Highstock and Highmaps
 The `type` property allows you to specify chart type. Possible values are:
 * `Chart` (Default value)
