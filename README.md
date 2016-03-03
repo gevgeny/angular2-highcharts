@@ -52,10 +52,12 @@ All the events from the [options.chart.events](http://api.highcharts.com/highcha
 ```
 ```TypeScript
 onChartSelection (e) {
-    console.log('onChartSelection', e.originalEvent, e.context);
+  let from = e.originalEvent.xAxis[0].min;
+  let to = e.originalEvent.xAxis[0].max;
+  alert(`chart selection from ${from.toFixed(2)} to ${to.toFixed(2)}`);
 }
 ```
-
+[Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
 #### Series events 
 
 The [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) are available as output properties of the `series` component.
