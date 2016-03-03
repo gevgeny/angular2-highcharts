@@ -123,6 +123,7 @@ export class DynamicChartExample {
     }
 }
 ```
+[Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
 ### Access to the Highcharts static members
 angular2-highcharts exports native `Highcharts` object to interact with its static members.
 ```TypeScript
