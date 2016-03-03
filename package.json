@@ -1,6 +1,6 @@
 {
   "name": "angular2-highcharts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Highcharts for your Angular2 project",
   "scripts": {
     "watch": "ntsc -w",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gevgeny/angular2-highcharts.git"
+    "url": "https://github.com/gevgeny/angular2-highcharts"
   },
   "keywords": [
     "Angular2",
@@ -29,10 +29,10 @@
     "es6-promise": "^3.0.2",
     "rxjs": "^5.0.0-beta.0",
     "reflect-metadata": "0.1.2",
-    "zone.js": "^0.5.11",
-    "highcharts": "^4.2.1"
+    "zone.js": "^0.5.11"
   },
   "dependencies": {
-    "deep-assign": "^2.0.0"
+    "deep-assign": "^2.0.0",
+    "highcharts": "^4.2.1"
   }
 }
