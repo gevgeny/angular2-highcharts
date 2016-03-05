@@ -106,28 +106,27 @@ angular2-higcharts provides possibility to interact with native `HighchartsChart
 
 ```TypeScript 
 @Component({
-    selector: 'dynamic-chart-example',
+    selector: 'my-app',
     directives: [CHART_DIRECTIVES],
     template: `
-        <chart [options]="options" (load)="saveInstance($event.context)"></chart>
-        <button (click)="addPoint()">Add Point</button>
+      <chart [options]="options" 
+             (load)="saveInstance($event.context)">
+      </chart>
     `
 })
-export class DynamicChartExample {
+class AppComponent {
     constructor() {
         this.options = {
-            series: [{
-                data: [2,3,5,8]
-            }]
-        }
+          chart: { type: 'spline' },
+          title: { text : 'dynamic data example'}
+          series: [{ data: [2,3,5,8,13] }]
+        };
+        setInterval(() => this.chart.series[0].addPoint(Math.random() * 10), 1000);
     }
     chart : Object;
     options: Object;
     saveInstance(chartInstance) {
         this.chart = chartInstance;
-    }
-    addPoint() {
-        this.chart.series[0].addPoint(Math.random() * 10);
     }
 }
 ```
