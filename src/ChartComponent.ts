@@ -42,9 +42,7 @@ export class ChartComponent {
     }
 
     ngAfterViewInit() {
-        console.log('ngAfterViewChecked');
         this.baseOpts = createBaseOpts(this, this.series, this.series ? this.series.point : null, this.element.nativeElement);
-        console.log('base opts', this.baseOpts);
         this.init();
     }
 

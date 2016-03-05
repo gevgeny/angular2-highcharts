@@ -2,7 +2,7 @@ import { EventEmitter } from 'angular2/core';
 import { ChartEvent } from './ChartEvent';
 
 const chartEvents = [
-    //'click',
+    //'click', works by default as a native DOM click
     'addSeries',
     'afterPrint',
     'beforePrint',
