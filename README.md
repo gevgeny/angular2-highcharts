@@ -13,7 +13,7 @@ Tested with Angular 2.0.0-beta.6
     - [Chart Events](#chart-events)
     - [Series Events](#series-events)
     - [Point Events](#point-events)
-  - [Access to the Highcharts Chart Object](#access-to-the-highcharts-chart-object)
+  - [Dynamic Interaction with Chart Object](#dynamic-interaction-with-chart-object)
   - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
   - [Highstock and Highmaps](#highstock-and-highmaps)
  - [License](#license)
@@ -100,7 +100,7 @@ onPointSelect (e) {
 }
 ```
 [Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
-### Access to the Highcharts Chart Object
+### Dynamic Interaction with Chart Object
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
 
