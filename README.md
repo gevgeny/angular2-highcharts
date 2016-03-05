@@ -1,5 +1,6 @@
 # angular2-highcharts
-Angular2 charting components based on Highcharts.
+> Angular2 charting components based on Highcharts.
+
 ###[Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
 ```
 npm install angular2-highcharts --save
