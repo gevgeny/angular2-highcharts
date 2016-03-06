@@ -1,8 +1,8 @@
 # angular2-highcharts
 
-[![npm version](https://badge.fury.io/js/angular2-highcharts.svg)](https://badge.fury.io/js/angular2-highcharts)
-
 > Angular2 charting components based on Highcharts.
+
+[![npm version](https://badge.fury.io/js/angular2-highcharts.svg)](https://badge.fury.io/js/angular2-highcharts)
 
 ###[Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
 ```
