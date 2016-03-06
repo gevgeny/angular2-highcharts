@@ -1,16 +1,11 @@
 # angular2-highcharts
 
-> Angular2 charting components based on Highcharts.
+> Angular2 charting components based on Highcharts. [Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
 
 [![npm version](https://badge.fury.io/js/angular2-highcharts.svg)](https://badge.fury.io/js/angular2-highcharts)
 
-###[Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
-```
-npm install angular2-highcharts --save
-```
-Tested with Angular 2.0.0-beta.6
-
 ## Table of Contents
+ - [Installation](#installation)
  - [Usage](#usage)
   - [Basic Usage](#basic-usage)
   - [Handling Events](#handling-events)
@@ -21,6 +16,11 @@ Tested with Angular 2.0.0-beta.6
   - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
   - [Highstock and Highmaps](#highstock-and-highmaps)
  - [License](#license)
+
+## Installation
+```
+npm install angular2-highcharts --save
+```
 
 ## Usage
 
@@ -179,6 +179,6 @@ export class StockChartExample {
 [Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
 
 ## License
-MIT
+MIT @ Eugene Gluhotorenko
 
 
