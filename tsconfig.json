@@ -10,8 +10,12 @@
     "outDir": "dist",
     "declaration": true
   },
+  "exclude": [
+    "node_modules",
+    "typings/main",
+    "typings/main.d.ts"
+  ],
   "files": [
-    "src/index.ts",
-    "./node_modules/angular2/typings/browser.d.ts"
+    "src/index.ts"
   ]
 }

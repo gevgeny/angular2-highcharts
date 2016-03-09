@@ -1,6 +1,3 @@
-/// <reference path="../typings/highcharts.d.ts" />
-/// <reference path="../node_modules/angular2/typings/browser.d.ts"" />
-
 import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from 'angular2/core';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 
