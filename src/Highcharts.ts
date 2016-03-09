@@ -1,3 +1,3 @@
 declare var require: any;
-var Highcharts = require('highcharts/highstock');
+var Highcharts = require('highcharts/highstock.src');
 export { Highcharts };
