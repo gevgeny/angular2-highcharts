@@ -11,8 +11,5 @@
   },
   "exclude": [
     "node_modules"
-  ],
-  "files": [
-    "../typings/highcharts.d.ts"
   ]
 }
