@@ -16,6 +16,7 @@
   - [Dynamic Interaction with Chart Object](#dynamic-interaction-with-chart-object)
   - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
   - [Highstock and Highmaps](#highstock-and-highmaps)
+  - [Using Highchart Modules](#using-highchart-modules)
  - [License](#license)
 
 ## Installation
