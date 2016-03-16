@@ -179,6 +179,19 @@ export class StockChartExample {
 ```
 [Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
 
+### Using Highchart modules
+
+You can load Highcharts modules via ES6 `import` and then plugin the module via calling appropriate function . Here is more details about Highcharts modules loading: http://www.highcharts.com/docs/getting-started/install-from-npm
+
+```
+import {Highcharts} from 'angular2-highcharts';
+import Highcharts3d from 'highcharts/highcharts-3d';   
+
+
+Highcharts3d(Highcharts); 
+```
+
+[Live Demo](http://plnkr.co/edit/4Eifda2IPpCjykONSQQJ?p=preview)
 ## License
 MIT @ Eugene Gluhotorenko
 
