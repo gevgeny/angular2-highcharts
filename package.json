@@ -5,7 +5,8 @@
   "scripts": {
     "watch": "ntsc -w",
     "build": "rm -rf dist && node ./node_modules/typescript/bin/tsc",
-    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "postinstall" : "typings install"
   },
   "repository": {
     "type": "git",
@@ -31,16 +32,14 @@
     "rxjs": "^5.0.0-beta.0",
     "reflect-metadata": "0.1.2",
     "zone.js": "^0.5.11",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.15",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-jasmine": "^0.3.6",
-    "karma-webpack": "^1.7.0",
-    "webpack": "^1.12.9",
-    "ts-loader": "^0.7.2"
+    "http-server": "0.8.5",
+    "jasmine-core": "2.4.1",
+    "karma": "0.13.19",
+    "karma-chrome-launcher": "0.2.2",
+    "karma-jasmine": "0.3.6",
+    "systemjs": "0.19.17"
   },
   "dependencies": {
-    "deep-assign": "^2.0.0",
     "highcharts": "^4.2.1"
   }
 }

@@ -11,11 +11,10 @@
     "declaration": true
   },
   "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+    "node_modules"
   ],
   "files": [
-    "src/index.ts"
+    "src/index.ts",
+    "src/ChartComponent.spec.ts"
   ]
 }
