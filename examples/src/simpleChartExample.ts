@@ -17,30 +17,7 @@ Highcharts.setOptions({
 })
 export class SimpleChartExample {
     constructor() {
-        let formatting = false;
-        let text;
-
-        this.options = {
-            tooltip : {
-                useHTML : true,
-                formatter (tooltip) {
-                    console.log('qwe');
-
-                    if (!formatting) {
-                        formatting = true;
-                        setTimeout(() => {
-                            text = `<p>123 123 123</p>`;
-                            //document.querySelector('.highcharts-tooltip>span').innerHTML
-                            tooltip.refresh(this.point);
-                        }, 0);
-                        return '';
-                    } else {
-                        formatting = false;
-                        return text;
-                    }
-                    //return this.x % 2 === 0 ? `<p>123 123 123</p>` : `<p>123</p>`;
-                }
-            },
+        this.options = {куыщку
             title : { text : 'simple chart' },
             series: [{
                 data: Array.from(new Array(100), (x,i) => i),
