@@ -17,7 +17,7 @@ Highcharts.setOptions({
 })
 export class SimpleChartExample {
     constructor() {
-        this.options = {куыщку
+        this.options = {
             title : { text : 'simple chart' },
             series: [{
                 data: Array.from(new Array(100), (x,i) => i),
