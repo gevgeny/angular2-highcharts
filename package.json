@@ -6,7 +6,7 @@
     "watch": "ntsc -w",
     "build": "rm -rf dist && node ./node_modules/typescript/bin/tsc",
     "test": "./node_modules/karma/bin/karma start karma.conf.js",
-    "postinstall" : "typings install"
+    "typings-install" : "typings install"
   },
   "repository": {
     "type": "git",
