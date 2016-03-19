@@ -37,6 +37,12 @@ module.exports = function(config) {
 
         // Coverage reporter generates the coverage
         reporters: ['progress'],
+        customLaunchers: {
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
         //reporters: ['progress', 'dots', 'coverage'],
 
         // Source files that you wanna generate coverage for.
