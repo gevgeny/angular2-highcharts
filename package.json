@@ -6,7 +6,7 @@
     "watch": "ntsc -w",
     "build": "rm -rf dist && node ./node_modules/typescript/bin/tsc",
     "test": "./node_modules/karma/bin/karma start karma.conf.js",
-    "typings-install" : "typings install"
+    "typings-install" : "node ./node_modules/typings/dist/bin install"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "karma": "0.13.19",
     "karma-chrome-launcher": "0.2.2",
     "karma-jasmine": "0.3.6",
+    "typings": "^0.7.9",
     "systemjs": "0.19.17"
   },
   "dependencies": {
