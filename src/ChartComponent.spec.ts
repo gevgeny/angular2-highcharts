@@ -63,12 +63,25 @@ describe('ChartComponent', () => {
             };
             fixture.componentInstance.options = ['options'];
             fixture.detectChanges();
-        })
+        });
+    });
+
+    it('should create chart asynchronously', (done) => {
+        create('<chart [options]="options" (create)="onCreated($event)"></chart>').then(fixture => {
+            fixture.componentInstance.onCreated = function (e) {
+                expect(e.constructor).toBe(HighchartsChartObjectMock);
+                done();
+            };
+            setTimeout(() => {
+                fixture.componentInstance.options = ['options'];
+                fixture.detectChanges();
+            });
+        });
     });
 
     it('should emit the "load" event', (done) => {
-        create('<chart [options]="options" (load)="onLoad()"></chart>').then(fixture => {
-            fixture.componentInstance.onLoad = () => done();
+        create('<chart [options]="options" (load)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
             fixture.componentInstance.options = ['options'];
             fixture.detectChanges();
             ChartEventEmitter.emitChartEvent('load');
