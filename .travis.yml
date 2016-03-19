@@ -10,5 +10,5 @@ install:
   - node ./node_modules/typings/dist/bin install
 
 script:
-  - rm -rf dist && node ./node_modules/typescript/bin/tsc
-  - ./node_modules/.bin/karma start --single-run --browsers Chrome
+  - node ./node_modules/typescript/bin/tsc
+  - ./node_modules/.bin/karma start karma.conf.js
