@@ -1,5 +1,4 @@
 import { HighchartsService } from './HighchartsService';
-declare var require: any;
 import { deepAssign } from './deepAssign';
 
 export function initChart(highchartsService : HighchartsService, userOpts, baseOpts, type : string) {
