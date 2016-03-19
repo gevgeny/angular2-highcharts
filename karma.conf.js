@@ -1,10 +1,7 @@
 module.exports = function(config) {
-    config.set({
-
+    var configuration = {
         basePath: '.',
-
         frameworks: ['jasmine'],
-
         files: [
             // paths loaded by Karma
             {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: true},
@@ -21,23 +18,16 @@ module.exports = function(config) {
             {pattern: 'src/**/*.ts', included: false, watched: false},
             {pattern: 'dist/**/*.js.map', included: false, watched: false}
         ],
-
         // proxied base paths
         proxies: {
             // required for component assests fetched by Angular's compiler
             '/src/': '/base/src/'
         },
-
         port: 9876,
-
         logLevel: config.LOG_INFO,
-
         colors: true,
-
         autoWatch: true,
-
         browsers: ['Chrome'],
-
         // Karma plugins loaded
         plugins: [
             'karma-jasmine',
@@ -62,5 +52,10 @@ module.exports = function(config) {
         //},
 
         singleRun: false
-    })
+    };
+
+    if (process.env.TRAVIS) {
+        configuration.browsers = ['Chrome_travis_ci'];
+    }
+    config.set(configuration);
 };
