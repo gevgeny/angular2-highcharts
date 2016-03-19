@@ -17,7 +17,8 @@ System.config({
         }
     },
     map : {
-        'highcharts/highstock.src' : 'base/dist/HighchartsServiceMock'
+        // Just stubbing the module with any simple file.
+        'highcharts/highstock.src' : 'base/dist/Mocks'
     }
 });
 
