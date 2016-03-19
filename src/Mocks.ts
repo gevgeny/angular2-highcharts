@@ -6,6 +6,14 @@ export class ChartEventEmitter {
     static emitChartEvent(eventName) {
         opts.chart.events[eventName]();
     }
+
+    static emitSeriesEvent(eventName) {
+        opts.plotOptions.series.events[eventName]();
+    }
+
+    static emitPointEvent(eventName) {
+        opts.plotOptions.series.point.events[eventName]();
+    }
 }
 
 export class HighchartsChartObjectMock {
