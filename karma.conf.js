@@ -4,6 +4,7 @@ module.exports = function(config) {
         frameworks: ['jasmine'],
         files: [
             // paths loaded by Karma
+            {pattern: 'node_modules/es6-shim/es6-shim.js', included: true, watched: true},
             {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: true},
             {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: true},
             {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: true},
@@ -57,7 +58,7 @@ module.exports = function(config) {
         //    ]
         //},
 
-        singleRun: false
+        singleRun: true
     };
 
     if (process.env.TRAVIS) {
