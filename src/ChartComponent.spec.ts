@@ -2,14 +2,11 @@ import {
     ComponentFixture,
     describe,
     expect,
-    fakeAsync,
-    injectAsync,
     inject,
     it,
     tick,
     TestComponentBuilder,
     beforeEach,
-    beforeEachProviders,
     setBaseTestProviders
 } from 'angular2/testing';
 import {
@@ -21,7 +18,7 @@ import { provide, Component } from 'angular2/core';
 import { ChartComponent } from './ChartComponent';
 import { CHART_DIRECTIVES } from './index';
 import { HighchartsService } from './HighchartsService';
-import { HighchartsServiceMock, HighchartsChartObjectMock } from './HighchartsServiceMock';
+import { HighchartsServiceMock, HighchartsChartObjectMock, ChartEventEmitter } from './Mocks';
 
 setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
@@ -67,5 +64,86 @@ describe('ChartComponent', () => {
             fixture.componentInstance.options = ['options'];
             fixture.detectChanges();
         })
+    });
+
+    it('should emit the "load" event', (done) => {
+        create('<chart [options]="options" (load)="onLoad()"></chart>').then(fixture => {
+            fixture.componentInstance.onLoad = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('load');
+        });
+    });
+
+    it('should emit the "addSeries" event', (done) => {
+        create('<chart [options]="options" (addSeries)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('addSeries');
+        });
+    });
+
+    it('should emit the "afterPrint" event', (done) => {
+        create('<chart [options]="options" (afterPrint)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('afterPrint');
+        });
+    });
+
+    it('should emit the "beforePrint" event', (done) => {
+        create('<chart [options]="options" (beforePrint)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('beforePrint');
+        });
+    });
+
+    it('should emit the "drilldown" event', (done) => {
+        create('<chart [options]="options" (drilldown)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('drilldown');
+        });
+    });
+
+    it('should emit the "drillup" event', (done) => {
+        create('<chart [options]="options" (drillup)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('drillup');
+        });
+    });
+
+    it('should emit the "load" event', (done) => {
+        create('<chart [options]="options" (load)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('load');
+        });
+    });
+
+    it('should emit the "redraw" event', (done) => {
+        create('<chart [options]="options" (redraw)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('redraw');
+        });
+    });
+
+    it('should emit the "selection" event', (done) => {
+        create('<chart [options]="options" (selection)="onEvent()"></chart>').then(fixture => {
+            fixture.componentInstance.onEvent = () => done();
+            fixture.componentInstance.options = ['options'];
+            fixture.detectChanges();
+            ChartEventEmitter.emitChartEvent('selection');
+        });
     });
 });
