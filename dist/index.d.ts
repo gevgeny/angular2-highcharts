@@ -1,4 +1,3 @@
-/// <reference path="../typings/browser.d.ts" />
 import { ChartComponent } from './ChartComponent';
 export { ChartComponent };
 import { ChartSeriesComponent } from './ChartSeriesComponent';

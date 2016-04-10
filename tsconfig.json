@@ -10,11 +10,9 @@
     "outDir": "dist",
     "declaration": true
   },
-  "exclude": [
-    "node_modules"
-  ],
   "files": [
     "src/index.ts",
-    "src/ChartComponent.spec.ts"
+    "src/ChartComponent.spec.ts",
+    "typings/browser.d.ts"
   ]
 }

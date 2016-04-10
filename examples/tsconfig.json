@@ -9,7 +9,7 @@
     "sourceMap": true,
     "declaration": true
   },
-  "exclude": [
-    "node_modules"
+  "files": [
+    "../typings/browser.d.ts"
   ]
 }
