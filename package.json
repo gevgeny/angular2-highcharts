@@ -1,6 +1,6 @@
 {
   "name": "angular2-highcharts",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Highcharts for your Angular2 project",
   "scripts": {
     "watch": "ntsc -w",
