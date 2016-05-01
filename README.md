@@ -154,7 +154,7 @@ Highcharts.setOptions({
 The `type` property allows you to specify chart type. Possible values are:
 * `Chart` (Default value)
 * `StockChart`
-* `Map` (To use this type you need to load the 'highcharts/modules/map' module additionally.)
+* `Map` (To use this type you need to load the 'highcharts/modules/map' module additionally. [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview))
 
 ```TypeScript
 @Component({
