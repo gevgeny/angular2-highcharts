@@ -1,26 +1,28 @@
 import {
-    ComponentFixture,
     describe,
     expect,
     inject,
     it,
     tick,
-    TestComponentBuilder,
     beforeEach,
     setBaseTestProviders
-} from 'angular2/testing';
+} from '@angular/core/testing';
 import {
-    TEST_BROWSER_PLATFORM_PROVIDERS,
-    TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
+	ComponentFixture,
+	TestComponentBuilder
+} from '@angular/compiler/testing';
+import {
+	TEST_BROWSER_STATIC_PLATFORM_PROVIDERS,
+	TEST_BROWSER_STATIC_APPLICATION_PROVIDERS
+} from '@angular/platform-browser/testing';
 
-import { provide, Component } from 'angular2/core';
+import { provide, Component } from '@angular/core';
 import { ChartComponent } from './ChartComponent';
 import { CHART_DIRECTIVES } from './index';
 import { HighchartsService } from './HighchartsService';
 import { HighchartsServiceMock, HighchartsChartObjectMock, ChartEventEmitter } from './Mocks';
 
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
+setBaseTestProviders(TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS);
 
 describe('ChartComponent', () => {
     let tcb;

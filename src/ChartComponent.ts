@@ -1,10 +1,10 @@
-import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from 'angular2/core';
+import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from '@angular/core';
 
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { HighchartsService } from './HighchartsService';
 import { ChartEvent } from './ChartEvent';
 import { initChart } from './initChart';
-import { createBaseOpts } from "./createBaseOpts";
+import { createBaseOpts } from './createBaseOpts';
 
 @Component({
     selector: 'chart',

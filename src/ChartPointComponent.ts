@@ -1,4 +1,4 @@
-import { Directive, Output, EventEmitter } from 'angular2/core';
+import { Directive, Output, EventEmitter } from '@angular/core';
 import { ChartEvent } from './ChartEvent';
 
 @Directive({
