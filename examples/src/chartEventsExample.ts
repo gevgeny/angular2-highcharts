@@ -1,4 +1,4 @@
-import {Component} from '../../node_modules/angular2/core';
+import {Component} from '../../node_modules/@angular/core';
 import { CHART_DIRECTIVES } from '../../index';
 
 @Component({

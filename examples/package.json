@@ -1,7 +1,6 @@
 {
   "name": "examples",
   "version": "1.0.0",
-  "homepage": "https://github.com/jhades/ng2-webpack-minimal#readme",
   "devDependencies": {
     "typescript": "^1.8.0",
     "webpack": "^1.12.9",
