@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var Highcharts_1 = require('./Highcharts');
-var core_1 = require('angular2/core');
+var core_1 = require('@angular/core');
 var HighchartsService = (function () {
     function HighchartsService() {
         this.Highcharts = Highcharts_1.Highcharts;

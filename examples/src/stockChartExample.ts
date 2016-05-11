@@ -1,9 +1,9 @@
 /**
  * Created by egluhotorenko on 4/10/16.
  */
-import {Component} from '../../node_modules/angular2/core';
+import {Component} from '../../node_modules/@angular/core';
 import { CHART_DIRECTIVES } from '../../index';
-import { Jsonp } from '../../node_modules/angular2/http';
+import { Jsonp } from '../../node_modules/@angular/http';
 
 @Component({
     selector: 'stock-chart-example',

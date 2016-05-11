@@ -1,4 +1,4 @@
-import { EventEmitter } from 'angular2/core';
+import { EventEmitter } from '@angular/core';
 import { ChartPointComponent } from './ChartPointComponent';
 import { ChartEvent } from './ChartEvent';
 export declare class ChartSeriesComponent {

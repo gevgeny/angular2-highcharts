@@ -1,8 +1,9 @@
 
-import '../../node_modules/angular2/bundles/angular2-polyfills';
-import { Component } from '../../node_modules/angular2/core';
-import { bootstrap } from '../../node_modules/angular2/platform/browser';
-import {JSONP_PROVIDERS } from '../../node_modules/angular2/http';
+import '../../node_modules/zone.js';
+import '../../node_modules/reflect-metadata';
+import { Component } from '../../node_modules/@angular/core';
+import { bootstrap } from '../../node_modules/@angular/platform-browser-dynamic';
+import {JSONP_PROVIDERS } from '../../node_modules/@angular/http';
 import { SimpleChartExample } from './simpleChartExample';
 import { ChartEventsExample } from './chartEventsExample';
 import { StockChartExample } from './stockChartExample';

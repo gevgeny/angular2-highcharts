@@ -1,4 +1,4 @@
-import { Directive, Output, EventEmitter, ContentChild } from 'angular2/core';
+import { Directive, Output, EventEmitter, ContentChild } from '@angular/core';
 import { ChartPointComponent } from './ChartPointComponent';
 import { ChartEvent } from './ChartEvent';
 

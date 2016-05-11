@@ -1,4 +1,4 @@
-import { ElementRef, EventEmitter } from 'angular2/core';
+import { ElementRef, EventEmitter } from '@angular/core';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { HighchartsService } from './HighchartsService';
 import { ChartEvent } from './ChartEvent';
