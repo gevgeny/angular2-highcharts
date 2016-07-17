@@ -52,7 +52,7 @@ export class SimpleChartExample {
             }]
         };
     }
-    options: Object;
+    options: HighchartsOptions;
 }
 ```
 [Live Demo](http://plnkr.co/edit/IuwjpPB1YQW1T7i4B8SZ?p=preview)
@@ -132,8 +132,8 @@ class AppComponent {
         };
         setInterval(() => this.chart.series[0].addPoint(Math.random() * 10), 1000);
     }
-    chart : Object;
-    options: Object;
+    chart : HighchartsChartObject;
+    options: HighchartsOptions;
     saveInstance(chartInstance) {
         this.chart = chartInstance;
     }
@@ -178,7 +178,7 @@ export class StockChartExample {
             };
         });
     }
-    options: Object;
+    options: HighchartsOptions;
 }
 ```
 [Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
