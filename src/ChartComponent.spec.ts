@@ -378,6 +378,95 @@ export function main() {
                 });
             });
         });
+
+        describe('should emit Highcharts xAxis event', () => {
+            it('"afterSetExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (afterSetExtremes)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('afterSetExtremes');
+                });
+            });
+
+            it('"pointInBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (pointInBreak)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('pointInBreak');
+                });
+            });
+
+            it('"setExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (setExtremes)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('setExtremes');
+                });
+            });
+        });
+
+        describe('should emit Highcharts yAxis event', () => {
+            it('"afterSetExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (afterSetExtremes)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('afterSetExtremes');
+                });
+            });
+
+            it('"pointInBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (pointInBreak)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('pointInBreak');
+                });
+            });
+
+            it('"setExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (setExtremes)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('setExtremes');
+                });
+            });
+        });
+
     });
 }
 

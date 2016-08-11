@@ -22,6 +22,12 @@ var ChartEventEmitter = (function () {
     ChartEventEmitter.emitPointEvent = function (eventName) {
         opts.plotOptions.series.point.events[eventName]();
     };
+    ChartEventEmitter.emitXAxisEvent = function (eventName) {
+        opts.xAxis.events[eventName]();
+    };
+    ChartEventEmitter.emitYAxisEvent = function (eventName) {
+        opts.yAxis.events[eventName]();
+    };
     return ChartEventEmitter;
 }());
 exports.ChartEventEmitter = ChartEventEmitter;

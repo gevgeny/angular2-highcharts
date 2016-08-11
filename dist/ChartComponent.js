@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ChartSeriesComponent_1 = require('./ChartSeriesComponent');
+var ChartXAxisComponent_1 = require('./ChartXAxisComponent');
+var ChartYAxisComponent_1 = require('./ChartYAxisComponent');
 var HighchartsService_1 = require('./HighchartsService');
 var initChart_1 = require('./initChart');
 var createBaseOpts_1 = require('./createBaseOpts');
@@ -45,13 +47,21 @@ var ChartComponent = (function () {
         }
     };
     ChartComponent.prototype.ngAfterViewInit = function () {
-        this.baseOpts = createBaseOpts_1.createBaseOpts(this, this.series, this.series ? this.series.point : null, this.element.nativeElement);
+        this.baseOpts = createBaseOpts_1.createBaseOpts(this, this.series, this.series ? this.series.point : null, this.xAxis, this.yAxis, this.element.nativeElement);
         this.init();
     };
     __decorate([
         core_1.ContentChild(ChartSeriesComponent_1.ChartSeriesComponent), 
         __metadata('design:type', ChartSeriesComponent_1.ChartSeriesComponent)
     ], ChartComponent.prototype, "series", void 0);
+    __decorate([
+        core_1.ContentChild(ChartXAxisComponent_1.ChartXAxisComponent), 
+        __metadata('design:type', ChartXAxisComponent_1.ChartXAxisComponent)
+    ], ChartComponent.prototype, "xAxis", void 0);
+    __decorate([
+        core_1.ContentChild(ChartYAxisComponent_1.ChartYAxisComponent), 
+        __metadata('design:type', ChartYAxisComponent_1.ChartYAxisComponent)
+    ], ChartComponent.prototype, "yAxis", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)

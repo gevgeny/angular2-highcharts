@@ -1,9 +1,13 @@
 import { ElementRef, EventEmitter } from '@angular/core';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
+import { ChartXAxisComponent } from './ChartXAxisComponent';
+import { ChartYAxisComponent } from './ChartYAxisComponent';
 import { HighchartsService } from './HighchartsService';
 import { ChartEvent } from './ChartEvent';
 export declare class ChartComponent {
     series: ChartSeriesComponent;
+    xAxis: ChartXAxisComponent;
+    yAxis: ChartYAxisComponent;
     create: EventEmitter<HighchartsChartObject>;
     click: EventEmitter<ChartEvent>;
     addSeries: EventEmitter<ChartEvent>;

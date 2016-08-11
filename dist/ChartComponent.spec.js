@@ -270,6 +270,58 @@ function main() {
                 });
             });
         });
+        testing_1.describe('should emit Highcharts xAxis event', function () {
+            testing_1.it('"afterSetExtremes"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <xAxis (afterSetExtremes)=\"onEvent()\">\n                    </xAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitXAxisEvent('afterSetExtremes');
+                });
+            });
+            testing_1.it('"pointInBreak"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <xAxis (pointInBreak)=\"onEvent()\">\n                    </xAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitXAxisEvent('pointInBreak');
+                });
+            });
+            testing_1.it('"setExtremes"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <xAxis (setExtremes)=\"onEvent()\">\n                    </xAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitXAxisEvent('setExtremes');
+                });
+            });
+        });
+        testing_1.describe('should emit Highcharts yAxis event', function () {
+            testing_1.it('"afterSetExtremes"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <yAxis (afterSetExtremes)=\"onEvent()\">\n                    </yAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitYAxisEvent('afterSetExtremes');
+                });
+            });
+            testing_1.it('"pointInBreak"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <yAxis (pointInBreak)=\"onEvent()\">\n                    </yAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitYAxisEvent('pointInBreak');
+                });
+            });
+            testing_1.it('"setExtremes"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <yAxis (setExtremes)=\"onEvent()\">\n                    </yAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitYAxisEvent('setExtremes');
+                });
+            });
+        });
     });
 }
 exports.main = main;
