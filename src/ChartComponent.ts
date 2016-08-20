@@ -1,6 +1,8 @@
 import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from '@angular/core';
 
 import { ChartSeriesComponent } from './ChartSeriesComponent';
+import { ChartXAxisComponent } from './ChartXAxisComponent';
+import { ChartYAxisComponent } from './ChartYAxisComponent';
 import { HighchartsService } from './HighchartsService';
 import { ChartEvent } from './ChartEvent';
 import { initChart } from './initChart';
@@ -13,6 +15,8 @@ import { createBaseOpts } from './createBaseOpts';
 })
 export class ChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
+    @ContentChild(ChartXAxisComponent) xAxis: ChartXAxisComponent;
+    @ContentChild(ChartYAxisComponent) yAxis: ChartYAxisComponent;
     @Output() create = new EventEmitter<HighchartsChartObject>();
     @Output() click = new EventEmitter<ChartEvent>();
     @Output() addSeries = new EventEmitter<ChartEvent>();
@@ -42,7 +46,7 @@ export class ChartComponent {
     }
 
     ngAfterViewInit() {
-        this.baseOpts = createBaseOpts(this, this.series, this.series ? this.series.point : null, this.element.nativeElement);
+        this.baseOpts = createBaseOpts(this, this.series, this.series ? this.series.point : null, this.xAxis, this.yAxis, this.element.nativeElement);
         this.init();
     }
 

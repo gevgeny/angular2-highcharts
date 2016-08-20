@@ -1,4 +1,4 @@
-export declare function createBaseOpts(chartCmp: any, seriesCmp: any, pointCmp: any, element: any): {
+export declare function createBaseOpts(chartCmp: any, seriesCmp: any, pointCmp: any, xAxisCmp: any, yAxisCmp: any, element: any): {
     chart: {
         renderTo: any;
         events: {};
@@ -10,5 +10,11 @@ export declare function createBaseOpts(chartCmp: any, seriesCmp: any, pointCmp: 
                 events: {};
             };
         };
+    };
+    xAxis: {
+        events: {};
+    };
+    yAxis: {
+        events: {};
     };
 };

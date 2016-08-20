@@ -15,6 +15,8 @@
     - [Chart Events](#chart-events)
     - [Series Events](#series-events)
     - [Point Events](#point-events)
+    - [X-Axis Events](#x-axis-events)
+    - [Y-Axis Events](#y-axis-events)
   - [Dynamic Interaction with Chart Object](#dynamic-interaction-with-chart-object)
   - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
   - [Highstock and Highmaps](#highstock-and-highmaps)
@@ -101,14 +103,38 @@ Similary you can use the `point` to access to [options.plotOptions.series.point.
     </series>
 </chart>
 <p><b>{{point}}</b> is selected<p>
-
-```
-```TypeScript
-onPointSelect (e) {
-  this.serieName = e.context.y;
-}
 ```
 [Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
+#### X-Axis Events 
+
+Similary you can use the `xAxis` to access to [options.xAxis.events](http://api.highcharts.com/highcharts#xAxis.events) API.
+```HTML
+<chart [options]="options">
+    <xAxis (afterSetExtremes)="onAfterSetExtremes($event)"></xAxis>
+</chart>
+```
+```TypeScript
+onAfterSetExtremes (e) {
+  this.min = e.context.min;
+  this.max = e.context.max;
+}
+```
+[Live Demo](http://plnkr.co/edit/2tVDzLDDVaGwUQZe6vDj?p=preview)
+#### Y-Axis Events 
+
+Similary you can use the `yAxis` to access to [options.yAxis.events](http://api.highcharts.com/highcharts#yAxis.events) API.
+```HTML
+<chart [options]="options">
+    <yAxis (afterSetExtremes)="onAfterSetExtremes($event)"></yAxis>
+</chart>
+```
+```TypeScript
+onAfterSetExtremes (e) {
+  this.min = e.context.min;
+  this.max = e.context.max;
+}
+```
+[Live Demo](http://plnkr.co/edit/HHUa9fHL766ynsi7Y5hR?p=preview)
 ### Dynamic Interaction with Chart Object
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
