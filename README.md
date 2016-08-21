@@ -119,7 +119,7 @@ onAfterSetExtremes (e) {
   this.max = e.context.max;
 }
 ```
-[Live Demo](http://plnkr.co/edit/2tVDzLDDVaGwUQZe6vDj?p=preview)
+[Live Demo](http://plnkr.co/edit/J727TztdUuCO6DJnmD1q?p=preview)
 #### Y-Axis Events 
 
 Similary you can use the `yAxis` to access to [options.yAxis.events](http://api.highcharts.com/highcharts#yAxis.events) API.
@@ -134,7 +134,7 @@ onAfterSetExtremes (e) {
   this.max = e.context.max;
 }
 ```
-[Live Demo](http://plnkr.co/edit/HHUa9fHL766ynsi7Y5hR?p=preview)
+[Live Demo](http://plnkr.co/edit/umNBDqKKLupxvpSpaZ5E?p=preview)
 ### Dynamic Interaction with Chart Object
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
