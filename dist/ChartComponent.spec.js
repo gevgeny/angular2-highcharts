@@ -271,12 +271,28 @@ function main() {
             });
         });
         testing_1.describe('should emit Highcharts xAxis event', function () {
+            testing_1.it('"afterBreaks"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <xAxis (afterBreaks)=\"onEvent()\">\n                    </xAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitXAxisEvent('afterBreaks');
+                });
+            });
             testing_1.it('"afterSetExtremes"', function (done) {
                 create("\n                <chart [options]=\"options\">\n                    <xAxis (afterSetExtremes)=\"onEvent()\">\n                    </xAxis>\n                </chart>\n            ").then(function (fixture) {
                     fixture.componentInstance.onEvent = function () { return done(); };
                     fixture.componentInstance.options = ['options'];
                     fixture.detectChanges();
                     Mocks_1.ChartEventEmitter.emitXAxisEvent('afterSetExtremes');
+                });
+            });
+            testing_1.it('"pointBreak"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <xAxis (pointBreak)=\"onEvent()\">\n                    </xAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitXAxisEvent('pointBreak');
                 });
             });
             testing_1.it('"pointInBreak"', function (done) {
@@ -297,12 +313,28 @@ function main() {
             });
         });
         testing_1.describe('should emit Highcharts yAxis event', function () {
+            testing_1.it('"afterBreaks"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <yAxis (afterBreaks)=\"onEvent()\">\n                    </yAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitYAxisEvent('afterBreaks');
+                });
+            });
             testing_1.it('"afterSetExtremes"', function (done) {
                 create("\n                <chart [options]=\"options\">\n                    <yAxis (afterSetExtremes)=\"onEvent()\">\n                    </yAxis>\n                </chart>\n            ").then(function (fixture) {
                     fixture.componentInstance.onEvent = function () { return done(); };
                     fixture.componentInstance.options = ['options'];
                     fixture.detectChanges();
                     Mocks_1.ChartEventEmitter.emitYAxisEvent('afterSetExtremes');
+                });
+            });
+            testing_1.it('"pointBreak"', function (done) {
+                create("\n                <chart [options]=\"options\">\n                    <yAxis (pointBreak)=\"onEvent()\">\n                    </yAxis>\n                </chart>\n            ").then(function (fixture) {
+                    fixture.componentInstance.onEvent = function () { return done(); };
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    Mocks_1.ChartEventEmitter.emitYAxisEvent('pointBreak');
                 });
             });
             testing_1.it('"pointInBreak"', function (done) {

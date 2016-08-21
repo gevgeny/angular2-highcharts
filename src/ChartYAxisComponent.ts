@@ -5,7 +5,9 @@ import { ChartEvent } from './ChartEvent';
     selector: 'yAxis'
 })
 export class ChartYAxisComponent {
+    @Output() afterBreaks = new EventEmitter<ChartEvent>();
     @Output() afterSetExtremes = new EventEmitter<ChartEvent>();
+    @Output() pointBreak = new EventEmitter<ChartEvent>();
     @Output() pointInBreak = new EventEmitter<ChartEvent>();
     @Output() setExtremes = new EventEmitter<ChartEvent>();
 }

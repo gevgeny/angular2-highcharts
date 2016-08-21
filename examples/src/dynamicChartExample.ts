@@ -25,5 +25,9 @@ export class DynamicChartExample {
     }
     addPoint() {
         this.chart.series[0].addPoint(Math.random() * 10);
+
+        for (var series of this.chart.series) {
+            console.log(series);
+        }
     }
 }

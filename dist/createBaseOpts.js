@@ -30,12 +30,16 @@ var pointEvents = [
     'update'
 ];
 var xAxisEvents = [
+    'afterBreaks',
     'afterSetExtremes',
+    'pointBreak',
     'pointInBreak',
     'setExtremes'
 ];
 var yAxisEvents = [
+    'afterBreaks',
     'afterSetExtremes',
+    'pointBreak',
     'pointInBreak',
     'setExtremes'
 ];

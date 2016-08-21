@@ -380,6 +380,20 @@ export function main() {
         });
 
         describe('should emit Highcharts xAxis event', () => {
+            it('"afterBreaks"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (afterBreaks)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('afterBreaks');
+                });
+            });
+
             it('"afterSetExtremes"', (done) => {
                 create(`
                 <chart [options]="options">
@@ -391,6 +405,20 @@ export function main() {
                     fixture.componentInstance.options = ['options'];
                     fixture.detectChanges();
                     ChartEventEmitter.emitXAxisEvent('afterSetExtremes');
+                });
+            });
+
+            it('"pointBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (pointBreak)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('pointBreak');
                 });
             });
 
@@ -424,6 +452,20 @@ export function main() {
         });
 
         describe('should emit Highcharts yAxis event', () => {
+            it('"afterBreaks"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (afterBreaks)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('afterBreaks');
+                });
+            });
+
             it('"afterSetExtremes"', (done) => {
                 create(`
                 <chart [options]="options">
@@ -435,6 +477,20 @@ export function main() {
                     fixture.componentInstance.options = ['options'];
                     fixture.detectChanges();
                     ChartEventEmitter.emitYAxisEvent('afterSetExtremes');
+                });
+            });
+
+            it('"pointBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (pointBreak)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('pointBreak');
                 });
             });
 

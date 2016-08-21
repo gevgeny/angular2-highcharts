@@ -35,13 +35,17 @@ const pointEvents = [
 ];
 
 const xAxisEvents = [
+    'afterBreaks',
     'afterSetExtremes',
+    'pointBreak',
     'pointInBreak',
     'setExtremes'
 ];
 
 const yAxisEvents = [
+    'afterBreaks',
     'afterSetExtremes',
+    'pointBreak',
     'pointInBreak',
     'setExtremes'
 ];

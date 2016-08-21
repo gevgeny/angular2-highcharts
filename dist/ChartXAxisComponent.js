@@ -11,14 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ChartXAxisComponent = (function () {
     function ChartXAxisComponent() {
+        this.afterBreaks = new core_1.EventEmitter();
         this.afterSetExtremes = new core_1.EventEmitter();
+        this.pointBreak = new core_1.EventEmitter();
         this.pointInBreak = new core_1.EventEmitter();
         this.setExtremes = new core_1.EventEmitter();
     }
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
+    ], ChartXAxisComponent.prototype, "afterBreaks", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
     ], ChartXAxisComponent.prototype, "afterSetExtremes", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ChartXAxisComponent.prototype, "pointBreak", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
