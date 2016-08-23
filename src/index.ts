@@ -1,3 +1,5 @@
+import { NgModule } from '@angular/core';
+
 import { ChartComponent } from './ChartComponent';
 export { ChartComponent }
 import { ChartSeriesComponent } from './ChartSeriesComponent';
@@ -11,10 +13,17 @@ export { ChartYAxisComponent };
 
 export { Highcharts } from './Highcharts';
 
-export const CHART_DIRECTIVES: any[] = [
+const CHART_DIRECTIVES: any[] = [
     ChartComponent,
     ChartSeriesComponent,
     ChartPointComponent,
     ChartXAxisComponent,
     ChartYAxisComponent
 ];
+
+@NgModule({
+  declarations: [CHART_DIRECTIVES],
+  exports: [CHART_DIRECTIVES]
+})
+export class ChartModule {
+}

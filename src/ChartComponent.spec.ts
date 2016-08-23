@@ -1,45 +1,59 @@
-import {
-    describe,
-    expect,
-    inject,
-    it,
-    tick,
-    beforeEach,
-    setBaseTestProviders
-} from '@angular/core/testing';
-import {
-	ComponentFixture,
-	TestComponentBuilder
-} from '@angular/compiler/testing';
-
-import { provide, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { ChartComponent } from './ChartComponent';
-import { CHART_DIRECTIVES } from './index';
+import { ChartPointComponent } from './ChartPointComponent';
+import { ChartSeriesComponent } from './ChartSeriesComponent';
+import { ChartXAxisComponent } from './ChartXAxisComponent';
+import { ChartYAxisComponent } from './ChartYAxisComponent';
 import { HighchartsService } from './HighchartsService';
 import { HighchartsServiceMock, HighchartsChartObjectMock, ChartEventEmitter } from './Mocks';
 
 export function main() {
     describe('ChartComponent', () => {
-        let tcb;
         let highchartsServiceMock;
 
-        let create = (template : string) => {
-            @Component({
-                selector : 'test-component',
-                template : template,
-                directives : [CHART_DIRECTIVES]
-            })
-            class TestComponent { }
+        @Component({
+            selector : 'test-component',
+            template : ''
+        })
+        class TestComponent {
+            options: any;
+            onCreated: any;
+            onEvent: any;
+        }
 
-            return tcb.createAsync(TestComponent);
-        };
-
-        beforeEach(inject([TestComponentBuilder], _tcb => {
+        beforeEach(() => {
             highchartsServiceMock = new HighchartsServiceMock();
-            tcb = _tcb.overrideProviders(ChartComponent, [
-                provide(HighchartsService, { useValue: highchartsServiceMock })
-            ]);
-        }));
+            TestBed.configureTestingModule({
+                declarations: [
+                    TestComponent,
+                    ChartComponent,
+                    ChartPointComponent,
+                    ChartSeriesComponent,
+                    ChartXAxisComponent,
+                    ChartYAxisComponent,
+                ],
+                schemas: [
+                    CUSTOM_ELEMENTS_SCHEMA,
+                ],
+            });
+        });
+
+        let create = (template: string) => {
+            return TestBed.overrideComponent(TestComponent, {
+                set: {
+                    template: template
+                }
+            }).overrideComponent(ChartComponent, {
+                set: {
+                    providers: [
+                        { provide: HighchartsService, useValue: highchartsServiceMock }
+                    ]
+                }
+            }).compileComponents().then(() => {
+                return TestBed.createComponent(TestComponent);
+            });
+        };
 
         it('should create simple chart object', (done) => {
             create('<chart [options]="options"></chart>').then(fixture => {
@@ -525,4 +539,3 @@ export function main() {
 
     });
 }
-

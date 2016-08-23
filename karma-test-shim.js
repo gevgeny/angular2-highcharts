@@ -24,6 +24,27 @@ System.config({
     baseURL: '/base/'
 });
 
+var packages = {
+    'rxjs': {
+        defaultExtension: 'js'
+    },
+};
+var packageNames2 = [
+    'common',
+    'compiler',
+    'core',
+    'http',
+    'platform-browser-dynamic',
+    'platform-browser',
+    'platform-server'
+];
+
+// add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
+packageNames2.forEach(function(pkgName) {
+    packages['@angular/'+pkgName] = { main: 'bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
+    packages['@angular/'+pkgName+'/testing'] = { main: '../bundles/' + pkgName + '-testing.umd.js', defaultExtension: 'js' };
+});
+
 System.config({
     defaultJSExtensions: true,
     map: {
@@ -34,43 +55,7 @@ System.config({
         'highcharts/highstock.src' : 'dist/stub'
 
     },
-    packages: {
-        '@angular/core': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/compiler': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/common': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/http': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/platform-browser': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/platform-browser-dynamic': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/router-deprecated': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/router': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        'rxjs': {
-            defaultExtension: 'js'
-        }
-    }
+    packages: packages
 });
 
 Promise.all([
@@ -81,9 +66,10 @@ Promise.all([
     var testing = providers[0];
     var testingBrowser = providers[1];
 
-    testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-        testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
-
+    testing.TestBed.initTestEnvironment(
+        testingBrowser.BrowserDynamicTestingModule,
+        testingBrowser.platformBrowserDynamicTesting()
+    );
 }).then(function() {
         return Promise.all(
             Object.keys(window.__karma__.files) // All files served by Karma.
