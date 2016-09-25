@@ -11,6 +11,8 @@
  - [Installation](#installation)
  - [Usage](#usage)
   - [Basic Usage](#basic-usage)
+    - [Setup App Module](setup app-module)
+    - [Create First Chart Component](create-first-chart-component)
   - [Handling Events](#handling-events)
     - [Chart Events](#chart-events)
     - [Series Events](#series-events)
@@ -32,20 +34,31 @@ npm install angular2-highcharts --save
 ## Usage
 
 ### Basic Usage
+#### Setup App Module
+```TypeScript
+import { ChartModule } from 'angular2-highcharts';
+
+@NgModule({
+    imports: [BrowserModule, ChartModule],
+    declarations: [App],
+    bootstrap: [App]
+})
+export class AppModule {}
+```
+
+#### Create First Chart Component
 Main charts functionality provided by the `chart` component and its `options` property.
 
 ```TypeScript
 import { Component } from 'angular2/core';
-import { CHART_DIRECTIVES } from 'angular2-highcharts';
 
 @Component({
     selector: 'simple-chart-example',
-    directives: [CHART_DIRECTIVES],
     template: `
         <chart [options]="options"></chart>
     `
 })
-export class SimpleChartExample {
+export class App {
     constructor() {
         this.options = {
             title : { text : 'simple chart' },
