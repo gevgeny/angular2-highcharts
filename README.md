@@ -36,7 +36,10 @@ npm install angular2-highcharts --save
 ### Basic Usage
 #### Setup App Module
 ```TypeScript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { ChartModule } from 'angular2-highcharts';
+import { App } from './App';
 
 @NgModule({
     imports: [BrowserModule, ChartModule],
@@ -50,7 +53,7 @@ export class AppModule {}
 Main charts functionality provided by the `chart` component and its `options` property.
 
 ```TypeScript
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'simple-chart-example',
