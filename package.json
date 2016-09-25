@@ -17,7 +17,9 @@
     "Angular2",
     "ng2",
     "charts",
-    "highcharts"
+    "highcharts",
+    "highstock",
+    "highmaps"
   ],
   "author": "Eugene Gluhotorenko",
   "license": "MIT",
