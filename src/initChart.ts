@@ -5,7 +5,16 @@ export function initChart(highchartsService : HighchartsService, userOpts, baseO
     if (!highchartsService.Highcharts[type]) {
         throw new Error(`${type} is unknown chart type.`);
     }
-    let opts = deepAssign({}, baseOpts, userOpts);
+
+    // Adjust axis type to user one (#56)
+    if (Array.isArray(userOpts.xAxis) ) {
+        baseOpts.xAxis = [baseOpts.xAxis];
+    }
+    if (Array.isArray(userOpts.yAxis) ) {
+        baseOpts.yAxis = [baseOpts.yAxis];
+    }
+
+    const opts = deepAssign({}, baseOpts, userOpts);
 
     return new highchartsService.Highcharts[type](opts);
 }
