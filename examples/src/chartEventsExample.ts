@@ -1,9 +1,7 @@
 import {Component} from '../../node_modules/@angular/core';
-import { CHART_DIRECTIVES } from '../../index';
 
 @Component({
     selector: 'chart-events-example',
-    directives: [CHART_DIRECTIVES],
     template: `
         <chart [options]="options" (selection)="onChartSelection($event)">
             <series (mouseOver)="onSeriesMouseOver($event)">

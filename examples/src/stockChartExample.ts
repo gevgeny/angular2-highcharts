@@ -1,11 +1,8 @@
-
 import {Component} from '../../node_modules/@angular/core';
-import { CHART_DIRECTIVES } from '../../index';
 import { Jsonp } from '../../node_modules/@angular/http';
 
 @Component({
     selector: 'stock-chart-example',
-    directives: [CHART_DIRECTIVES],
     template: `<chart type="StockChart" [options]="options"></chart>`
 })
 export class StockChartExample {

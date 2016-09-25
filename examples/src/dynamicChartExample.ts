@@ -1,9 +1,7 @@
 import { Component } from '../../node_modules/@angular/core';
-import { CHART_DIRECTIVES } from '../../index';
 
 @Component({
     selector: 'dynamic-chart-example',
-    directives: [CHART_DIRECTIVES],
     template: `
         <chart [options]="options" (load)="saveInstance($event.context)"></chart>
         <button (click)="addPoint()">Add Point</button>
