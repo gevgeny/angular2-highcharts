@@ -9,4 +9,5 @@ export { ChartXAxisComponent };
 import { ChartYAxisComponent } from './ChartYAxisComponent';
 export { ChartYAxisComponent };
 export { Highcharts } from './Highcharts';
-export declare const CHART_DIRECTIVES: any[];
+export declare class ChartModule {
+}
