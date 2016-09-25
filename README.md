@@ -11,7 +11,7 @@
  - [Installation](#installation)
  - [Usage](#usage)
   - [Basic Usage](#basic-usage)
-    - [Setup App Module](setup app-module)
+    - [Setup App Module](setup-app-module)
     - [Create First Chart Component](create-first-chart-component)
   - [Handling Events](#handling-events)
     - [Chart Events](#chart-events)
