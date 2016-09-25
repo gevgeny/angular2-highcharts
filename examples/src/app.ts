@@ -11,7 +11,7 @@ import { ChartEventsExample } from './chartEventsExample';
 import { StockChartExample } from './stockChartExample';
 import { DynamicChartExample } from './dynamicChartExample';
 import { ComboMultiAxesExample } from './comboMultiAxesExample';
-import { ChartsModule } from '../../index';
+import { ChartModule } from '../../index';
 
 
 @Component({
@@ -31,7 +31,7 @@ class App {
 }
 
 @NgModule({
-    imports: [BrowserModule, JsonpModule, ChartsModule],
+    imports: [BrowserModule, JsonpModule, ChartModule],
     declarations: [
         App,
         SimpleChartExample,
