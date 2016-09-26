@@ -11,6 +11,7 @@ import { ChartEventsExample } from './chartEventsExample';
 import { StockChartExample } from './stockChartExample';
 import { DynamicChartExample } from './dynamicChartExample';
 import { ComboMultiAxesExample } from './comboMultiAxesExample';
+import { HighchartsModuleExample } from './highchartsModuleExample';
 import { ChartModule } from '../../index';
 
 
@@ -24,6 +25,7 @@ import { ChartModule } from '../../index';
         <stock-chart-example></stock-chart-example>
         <dynamic-chart-example></dynamic-chart-example>
         <combo-multi-axes-example></combo-multi-axes-example>
+        <highcharts-module-example></highcharts-module-example>
     `
 })
 class App {
@@ -38,7 +40,8 @@ class App {
         ChartEventsExample,
         StockChartExample,
         DynamicChartExample,
-        ComboMultiAxesExample
+        ComboMultiAxesExample,
+        HighchartsModuleExample
     ],
     bootstrap: [App]
 })
