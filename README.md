@@ -17,8 +17,7 @@
     - [Chart Events](#chart-events)
     - [Series Events](#series-events)
     - [Point Events](#point-events)
-    - [X-Axis Events](#x-axis-events)
-    - [Y-Axis Events](#y-axis-events)
+    - [Axis Events](#axis-events)
   - [Dynamic Interaction with Chart Object](#dynamic-interaction-with-chart-object)
   - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
   - [Highstock and Highmaps](#highstock-and-highmaps)
@@ -121,33 +120,25 @@ Similary you can use the `point` to access to [options.plotOptions.series.point.
 <p><b>{{point}}</b> is selected<p>
 ```
 [Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
-#### X-Axis Events 
+#### Axis Events 
 
-Similary you can use the `xAxis` to access to [options.xAxis.events](http://api.highcharts.com/highcharts#xAxis.events) API.
+Similary you can use the `xAxis` or `yAxes` to access to [options.xAxis.events](http://api.highcharts.com/highcharts#xAxis.events) or [options.yAxis.events](http://api.highcharts.com/highcharts#yAxis.events) API.
 ```HTML
 <chart [options]="options">
-    <xAxis (afterSetExtremes)="onAfterSetExtremes($event)"></xAxis>
+     <xAxis (afterSetExtremes)="onAfterSetExtremesX($event)"></xAxis>
+     <yAxis (afterSetExtremes)="onAfterSetExtremesY($event)"></yAxis>
 </chart>
+<p>{{minX}} - {{maxX}}<p>
+<p>{{minY}} - {{maxY}}<p>
 ```
 ```TypeScript
-onAfterSetExtremes (e) {
-  this.min = e.context.min;
-  this.max = e.context.max;
+onAfterSetExtremesX (e) {
+  this.minX = e.context.min;
+  this.maxX = e.context.max;
 }
-```
-[Live Demo](http://plnkr.co/edit/J727TztdUuCO6DJnmD1q?p=preview)
-#### Y-Axis Events 
-
-Similary you can use the `yAxis` to access to [options.yAxis.events](http://api.highcharts.com/highcharts#yAxis.events) API.
-```HTML
-<chart [options]="options">
-    <yAxis (afterSetExtremes)="onAfterSetExtremes($event)"></yAxis>
-</chart>
-```
-```TypeScript
-onAfterSetExtremes (e) {
-  this.min = e.context.min;
-  this.max = e.context.max;
+onAfterSetExtremesY (e) {
+  this.minY = e.context.min;
+  this.maxY = e.context.max;
 }
 ```
 [Live Demo](http://plnkr.co/edit/c4ojcIRVOOwq7xmk9kfx?p=preview)
