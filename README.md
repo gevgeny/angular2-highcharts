@@ -222,13 +222,13 @@ You can load Highcharts modules via ES6 `import` and then plugin the module via 
 
 ```
 import {Highcharts} from 'angular2-highcharts';
-import Highcharts3d from 'highcharts/highcharts-3d';   
+import * as Highcharts3d from 'highcharts/highcharts-3d';   
 
 
 Highcharts3d(Highcharts); 
 ```
 
-[Live Demo](http://plnkr.co/edit/4Eifda2IPpCjykONSQQJ?p=preview)
+[Live Demo](http://plnkr.co/edit/f8L7U0iPZ3VH7LF6vDiW?p=preview)
 
 ##FAQ
 
