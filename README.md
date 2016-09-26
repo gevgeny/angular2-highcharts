@@ -150,7 +150,7 @@ onAfterSetExtremes (e) {
   this.max = e.context.max;
 }
 ```
-[Live Demo](http://plnkr.co/edit/umNBDqKKLupxvpSpaZ5E?p=preview)
+[Live Demo](http://plnkr.co/edit/c4ojcIRVOOwq7xmk9kfx?p=preview)
 ### Dynamic Interaction with Chart Object
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
