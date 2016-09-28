@@ -5,8 +5,7 @@
   "scripts": {
     "watch": "ntsc -w",
     "build": "rm -rf dist && tsc",
-    "test": "karma start karma.conf.js",
-    "typings-install": "typings install"
+    "test": "karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
