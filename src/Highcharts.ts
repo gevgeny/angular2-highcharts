@@ -1,4 +1,4 @@
-/// <reference path="../typings/index.d.ts" />
+/// <reference types="highcharts" />
 declare var require: any;
 var Highcharts = require('highcharts/highstock.src');
 export { Highcharts };
