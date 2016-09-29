@@ -2,5 +2,6 @@ examples
 node_modules
 src
 .idea
+.travis.yml
 karma.conf.js
 karma-test-shim.js

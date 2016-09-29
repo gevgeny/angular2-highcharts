@@ -15,8 +15,8 @@ before_script:
   - sleep 3
 install:
   - npm install
-  - node ./node_modules/typings/dist/bin install
+  - ./node_modules/.bin/typings install
 
 script:
-  - node ./node_modules/typescript/bin/tsc
+  - npm run build
   - ./node_modules/.bin/karma start karma.conf.js

@@ -74,6 +74,7 @@ Promise.all([
         return Promise.all(
             Object.keys(window.__karma__.files) // All files served by Karma.
                 .filter(onlySpecFiles)
+                .filter(isBuiltFile)
                 .map(file2moduleName)
                 .map(function(path) {
                     return System.import(path).then(function(module) {
@@ -98,6 +99,14 @@ function onlySpecFiles(path) {
         path.match(new RegExp(__karma__.config.files)) : true;
 
     return patternMatched && /[\.|_]spec\.js$/.test(path);
+}
+
+function isJsFile(path) {
+    return path.slice(-3) == '.js';
+}
+
+function isBuiltFile(path) {
+    return isJsFile(path) && (path.indexOf('/base/dist/') > -1);
 }
 
 // Normalize paths to module names.
