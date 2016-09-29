@@ -1,3 +1,4 @@
+/// <reference types="highcharts" />
 import { ElementRef, EventEmitter } from '@angular/core';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartXAxisComponent } from './ChartXAxisComponent';

@@ -1,3 +1,4 @@
+/// <reference types="highcharts" />
 export declare class ChartEvent {
     originalEvent: Event;
     context: HighchartsChartObject | HighchartsSeriesObject | HighchartsPointObject | HighchartsAxisObject;
