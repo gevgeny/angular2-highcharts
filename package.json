@@ -50,6 +50,7 @@
     "zone.js": "0.6.25"
   },
   "dependencies": {
-    "@types/highcharts": "^4.2.36"
+    "@types/highcharts": "^4.2.36",
+    "highcharts": "^4.2.7"
   }
 }
