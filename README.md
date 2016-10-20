@@ -231,8 +231,7 @@ Highcharts3d(Highcharts);
 
 [Live Demo](http://plnkr.co/edit/f8L7U0iPZ3VH7LF6vDiW?p=preview)
 
-##
-More Examples
+##More Examples
 
 Here are some common charts examples with integration with Webpack https://github.com/gevgeny/angular2-highcharts/tree/master/examples
 
