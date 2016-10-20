@@ -22,6 +22,7 @@
   - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
   - [Highstock and Highmaps](#highstock-and-highmaps)
   - [Using Highchart Modules](#using-highchart-modules)
+ -  [More Examples](#more-examples) 
  - [FAQ](#faq)
  - [License](#license)
 
@@ -229,6 +230,11 @@ Highcharts3d(Highcharts);
 ```
 
 [Live Demo](http://plnkr.co/edit/f8L7U0iPZ3VH7LF6vDiW?p=preview)
+
+##
+More Examples
+
+Here are some common charts examples with integration with Webpack https://github.com/gevgeny/angular2-highcharts/tree/master/examples
 
 ##FAQ
 
