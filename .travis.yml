@@ -15,7 +15,6 @@ before_script:
   - sleep 3
 install:
   - npm install
-  - ./node_modules/.bin/typings install
 
 script:
   - npm run build
