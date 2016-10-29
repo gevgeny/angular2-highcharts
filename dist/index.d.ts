@@ -8,6 +8,6 @@ import { ChartXAxisComponent } from './ChartXAxisComponent';
 export { ChartXAxisComponent };
 import { ChartYAxisComponent } from './ChartYAxisComponent';
 export { ChartYAxisComponent };
-export { Highcharts } from './Highcharts';
+export { Highcharts } from './HighchartsWrapper';
 export declare class ChartModule {
 }

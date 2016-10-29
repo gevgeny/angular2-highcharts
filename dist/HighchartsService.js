@@ -1,9 +1,9 @@
 "use strict";
-var Highcharts_1 = require('./Highcharts');
+var HighchartsWrapper_1 = require('./HighchartsWrapper');
 var core_1 = require('@angular/core');
 var HighchartsService = (function () {
     function HighchartsService() {
-        this.Highcharts = Highcharts_1.Highcharts;
+        this.Highcharts = HighchartsWrapper_1.Highcharts;
     }
     HighchartsService.decorators = [
         { type: core_1.Injectable },

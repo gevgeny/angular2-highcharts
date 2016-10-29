@@ -10,7 +10,7 @@ import * as import2 from '@angular/core/src/di/injector';
 class ChartModuleInjector extends import0.NgModuleInjector<import1.ChartModule> {
   _ChartModule_0:import1.ChartModule;
   constructor(parent:import2.Injector) {
-    super(parent,[],[]);
+    super(parent,([] as any[]),([] as any[]));
   }
   createInternal():import1.ChartModule {
     this._ChartModule_0 = new import1.ChartModule();

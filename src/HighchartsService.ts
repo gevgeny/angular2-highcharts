@@ -1,10 +1,12 @@
-import { Highcharts } from './Highcharts';
+import * as highcharts from 'highcharts';
+
+import { Highcharts } from './HighchartsWrapper';
 import { Injectable } from '@angular/core';
 
 
 @Injectable()
 export class HighchartsService {
-    Highcharts : HighchartsStatic;
+    Highcharts : highcharts.Static;
 
     constructor() {
         this.Highcharts = Highcharts;

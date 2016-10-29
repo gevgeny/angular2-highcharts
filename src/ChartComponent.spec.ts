@@ -10,7 +10,7 @@ import { HighchartsServiceMock, HighchartsChartObjectMock, ChartEventEmitter } f
 
 export function main() {
     describe('ChartComponent', () => {
-        let highchartsServiceMock;
+        let highchartsServiceMock : any;
 
         @Component({
             selector : 'test-component',

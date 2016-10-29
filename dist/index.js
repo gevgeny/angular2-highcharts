@@ -10,8 +10,8 @@ var ChartXAxisComponent_1 = require('./ChartXAxisComponent');
 exports.ChartXAxisComponent = ChartXAxisComponent_1.ChartXAxisComponent;
 var ChartYAxisComponent_1 = require('./ChartYAxisComponent');
 exports.ChartYAxisComponent = ChartYAxisComponent_1.ChartYAxisComponent;
-var Highcharts_1 = require('./Highcharts');
-exports.Highcharts = Highcharts_1.Highcharts;
+var HighchartsWrapper_1 = require('./HighchartsWrapper');
+exports.Highcharts = HighchartsWrapper_1.Highcharts;
 var CHART_DIRECTIVES = [
     ChartComponent_1.ChartComponent,
     ChartSeriesComponent_1.ChartSeriesComponent,

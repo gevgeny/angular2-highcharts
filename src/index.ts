@@ -11,7 +11,7 @@ export { ChartXAxisComponent };
 import { ChartYAxisComponent } from './ChartYAxisComponent';
 export { ChartYAxisComponent };
 
-export { Highcharts } from './Highcharts';
+export { Highcharts } from './HighchartsWrapper';
 
 const CHART_DIRECTIVES: any[] = [
     ChartComponent,

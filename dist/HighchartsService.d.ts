@@ -1,5 +1,6 @@
 /// <reference types="highcharts" />
+import * as highcharts from 'highcharts';
 export declare class HighchartsService {
-    Highcharts: HighchartsStatic;
+    Highcharts: highcharts.Static;
     constructor();
 }
