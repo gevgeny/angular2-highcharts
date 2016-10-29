@@ -51,7 +51,7 @@
     "@types/jasmine": "^2.2.34"
   },
   "dependencies": {
-    "@types/highcharts": "^4.2.36",
-    "highcharts": "^4.2.7"
+    "@types/highcharts": "^4.2.5",
+    "highcharts": "^5.0.2"
   }
 }
