@@ -8,8 +8,5 @@
     "removeComments": true,
     "sourceMap": true,
     "declaration": true
-  },
-  "files": [
-    "../typings/index.d.ts"
-  ]
+  }
 }

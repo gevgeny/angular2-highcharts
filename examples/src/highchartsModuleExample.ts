@@ -1,7 +1,11 @@
 import {Component} from '../../node_modules/@angular/core';
 import { Jsonp } from '../../node_modules/@angular/http';
 import { Highcharts } from '../../index';
-import * as Highcharts3d from 'highcharts/highcharts-3d';
+//import * as Highcharts3d from '../../node_modules/highcharts/highcharts-3d';
+
+declare var require: any;
+const Highcharts3d  = require('../../node_modules/highcharts/highcharts-3d.js');
+
 
 Highcharts3d(Highcharts);
 

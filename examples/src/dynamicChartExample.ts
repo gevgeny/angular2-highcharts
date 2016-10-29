@@ -1,3 +1,4 @@
+
 import { Component } from '../../node_modules/@angular/core';
 
 @Component({
@@ -16,8 +17,8 @@ export class DynamicChartExample {
             }]
         }
     }
-    chart : HighchartsChartObject;
-    options: HighchartsOptions;
+    chart : any;
+    options: any;
     saveInstance(chartInstance) {
         this.chart = chartInstance;
     }
