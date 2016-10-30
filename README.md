@@ -6,6 +6,7 @@
 [![build](https://travis-ci.org/gevgeny/angular2-highcharts.svg?branch=master)](https://travis-ci.org/gevgeny/angular2-highcharts)
 [![npm version](https://badge.fury.io/js/angular2-highcharts.svg)](https://badge.fury.io/js/angular2-highcharts)
 [![npm dependencies](https://david-dm.org/gevgeny/angular2-highcharts.svg)](https://david-dm.org/gevgeny/angular2-highcharts)
+[![npm downloads](https://img.shields.io/npm/dm/angular2-highcharts.svg)
 
 ## Table of Contents
  - [Installation](#installation)
