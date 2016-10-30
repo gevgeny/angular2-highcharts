@@ -52,7 +52,7 @@ System.config({
         //'@angular/core/testing': './node_modules/@angular/core/testing',
         '@angular': 'node_modules/@angular',
         // Just stubbing the module with any simple file.
-        'highcharts/highstock.src' : 'dist/stub'
+        'highcharts' : 'dist/stub'
 
     },
     packages: packages

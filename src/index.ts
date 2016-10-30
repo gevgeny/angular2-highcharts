@@ -1,17 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { ChartComponent } from './ChartComponent';
-export { ChartComponent }
 import { ChartSeriesComponent } from './ChartSeriesComponent';
-export { ChartSeriesComponent };
 import { ChartPointComponent } from './ChartPointComponent';
-export { ChartPointComponent };
 import { ChartXAxisComponent } from './ChartXAxisComponent';
-export { ChartXAxisComponent };
 import { ChartYAxisComponent } from './ChartYAxisComponent';
-export { ChartYAxisComponent };
-
-export { Highcharts } from './HighchartsWrapper';
 
 const CHART_DIRECTIVES: any[] = [
     ChartComponent,
@@ -25,5 +18,12 @@ const CHART_DIRECTIVES: any[] = [
   declarations: [CHART_DIRECTIVES],
   exports: [CHART_DIRECTIVES]
 })
-export class ChartModule {
-}
+export class ChartModule { };
+
+export {
+    ChartComponent,
+    ChartSeriesComponent,
+    ChartPointComponent,
+    ChartXAxisComponent,
+    ChartYAxisComponent
+};

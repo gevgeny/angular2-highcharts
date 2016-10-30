@@ -1,6 +1,8 @@
 import { Component } from '../../node_modules/@angular/core';
 import { Jsonp } from '../../node_modules/@angular/http';
-import { Highcharts } from '../../index';
+
+declare var require: any;
+const Highcharts = require('../../node_modules/highcharts');
 
 
 @Component({

@@ -5,12 +5,10 @@ module.exports = {
     output: {
         filename: "bundle.js"
     },
-    //devtool: 'source-map',
     resolve: {
         alias: {
-            //highcharts: '../node_modules/highcharts'
+            highcharts: "../node_modules/highcharts/highstock.src.js"
         },
-    //{ 'angular2/core' : "../../node_modules/angular2/core.d.ts" },
         extensions: ['', '.webpack.js', '.web.js', '.ts',  '.js']
     },
     module: {
