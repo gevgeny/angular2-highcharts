@@ -184,7 +184,7 @@ The Highchart modules are not really ES6 compatiable so access to highcharts nat
 See the SystemJS and Webpack examples apps 
 - https://github.com/gevgeny/angular2-webpack-starter-and-angular2-highcharts/blob/master/src/app/home/home.component.ts
 - https://github.com/gevgeny/angular2-quickstart-and-angular2-highcharts/blob/master/app/app.component.ts
-```
+
 [Live Demo](http://plnkr.co/edit/UREjbP8Ij9983H3zJTZs?p=preview)
 
 ### Highstock and Highmaps
