@@ -19,7 +19,7 @@
     - [Point Events](#point-events)
     - [Axis Events](#axis-events)
   - [Dynamic Interaction with Chart Object](#dynamic-interaction-with-chart-object)
-  - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
+  - [Access to the Highcharts Static Members and Modules](#access-to-the-highcharts-static-members-and-modules)
   - [Highstock and Highmaps](#highstock-and-highmaps)
   - [Using Highchart Modules](#using-highchart-modules)
  -  [More Examples](#more-examples) 
@@ -30,7 +30,7 @@
 ```
 npm install angular2-highcharts --save
 ```
-The full installation process depends on environment you are using to run your angular2 app. Here is some examples:
+The full installation process depends on environment you are using to run your angular2 app. Here are some examples:
 - [angular2-webpack-starter (Webpack)](https://github.com/gevgeny/angular2-webpack-starter-and-angular2-highcharts)
 - [angular/quickstart (SystemJS)](https://github.com/gevgeny/angular2-quickstart-and-angular2-highcharts)
 
@@ -178,14 +178,12 @@ class AppComponent {
 }
 ```
 [Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
-### Access to the Highcharts Static Members
-angular2-highcharts exports native `Highcharts` object to interact with its static members.
-```TypeScript
-import { Highcharts } from 'angular2-highcharts';
+### Access to the Highcharts Static Members and Modules
 
-Highcharts.setOptions({
-  colors: ['#058DC7', '#50B432', '#ED561B']
-});
+The Highchart modules are not really ES6 compatiable so access to highcharts native API depends on environment configuration 
+See the SystemJS and Webpack examples apps 
+- https://github.com/gevgeny/angular2-webpack-starter-and-angular2-highcharts/blob/master/src/app/home/home.component.ts
+- https://github.com/gevgeny/angular2-quickstart-and-angular2-highcharts/blob/master/app/app.component.ts
 ```
 [Live Demo](http://plnkr.co/edit/UREjbP8Ij9983H3zJTZs?p=preview)
 
@@ -221,23 +219,9 @@ export class StockChartExample {
 ```
 [Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
 
-### Using Highchart modules
-
-You can load Highcharts modules via ES6 `import` and then plugin the module via calling appropriate function . Here is more details about Highcharts modules loading: http://www.highcharts.com/docs/getting-started/install-from-npm
-
-```TypeScript
-import {Highcharts} from 'angular2-highcharts';
-import * as Highcharts3d from 'highcharts/highcharts-3d';   
-
-
-Highcharts3d(Highcharts); 
-```
-
-[Live Demo](http://plnkr.co/edit/f8L7U0iPZ3VH7LF6vDiW?p=preview)
-
 ##More Examples
 
-Here are some common charts examples with integration with Webpack https://github.com/gevgeny/angular2-highcharts/tree/master/examples
+Here are some common charts examples with Webpack integration https://github.com/gevgeny/angular2-highcharts/tree/master/examples
 
 ##FAQ
 
