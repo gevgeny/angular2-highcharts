@@ -30,6 +30,10 @@
 ```
 npm install angular2-highcharts --save
 ```
+The full installation process depends on environment you are using to run your angular2 app. Here is some examples:
+- [angular2-webpack-starter (Webpack)](https://github.com/gevgeny/angular2-webpack-starter-and-angular2-highcharts)
+- [angular/quickstart (SystemJS)](https://github.com/gevgeny/angular2-quickstart-and-angular2-highcharts)
+
 
 ## Usage
 
