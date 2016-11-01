@@ -59,6 +59,7 @@ Main charts functionality provided by the `chart` component and its `options` pr
 
 ```TypeScript
 import { Component } from '@angular/core';
+import * as Highcharts from 'highcharts';
 
 @Component({
     selector: 'simple-chart-example',
@@ -75,7 +76,7 @@ export class App {
             }]
         };
     }
-    options: Object;
+    options: Highcharts.Object;
 }
 ```
 [Live Demo](http://plnkr.co/edit/IuwjpPB1YQW1T7i4B8SZ?p=preview)
@@ -153,9 +154,10 @@ onAfterSetExtremesY (e) {
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
 
 ```TypeScript 
+import * as Highcharts from 'highcharts';
+
 @Component({
     selector: 'my-app',
-    directives: [CHART_DIRECTIVES],
     template: `
       <chart [options]="options" 
              (load)="saveInstance($event.context)">
@@ -171,14 +173,105 @@ class AppComponent {
         };
         setInterval(() => this.chart.series[0].addPoint(Math.random() * 10), 1000);
     }
-    chart : Object;
-    options: Object;
+    chart : Highcharts.ChartObject;
+    options: Highcharts.Options;
     saveInstance(chartInstance) {
         this.chart = chartInstance;
     }
 }
 ```
 [Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
+
+### Styling Highcharts and GlobalOptions
+If you want to use the extra stylings like the one in [highcharts.js demo](http://www.highcharts.com/demo/dark-unica), you will need to get the Highchart static members, from Highcharts' `node_modules`. Note that in `angular2-higchcharts` we have **already** included `highcharts` as `node_modules`, so you do not need to do `npm install highcharts` anymore. A wrapper is infact provided that you can use to access to the native API.
+
+Make sure you import the correct variables. Examples are given below
+
+To use the typings:
+
+    import * as HighChartsTypings from 'highcharts';
+
+To use the Highchart's StaticMember wrapper (do not be confused with the typings):
+
+    import {Highcharts} from 'angular2-highcharts/dist/HighChartsWrapper'
+
+#### Set background image
+```TypeScript
+import { Component } from '@angular/core';
+import * as HighChartsTypings from 'highcharts'; // this is imported by typescript just for the typings, from index.d.ts
+import {Highcharts} from 'angular2-highcharts/dist/HighChartsWrapper'//this ons is required by node, from highcharts.js' node_modules
+
+
+@Component({
+    selector: 'simple-chart-example',
+    template: `
+        <chart [options]="options"></chart>
+    `
+})
+export class App {
+    constructor() {
+        this.options = {
+            title : { text : 'simple chart' },
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2],
+            }]
+        };
+        Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
+            proceed.call(this);
+            this.container.style.background = 'url(http://www.highcharts.com/samples/graphics/sand.png)';
+        });
+    }
+
+    options: HighChartsTypings.Options;
+}
+```
+#### Use Roboto font in global settings
+```TypeScript
+import { Component } from '@angular/core';
+import * as HighChartsTypings from 'highcharts'; 
+import {Highcharts} from 'angular2-highcharts/dist/HighChartsWrapper'
+
+
+
+@Component({
+    selector: 'simple-chart-example',
+    template: `
+        <chart [options]="options"></chart>
+    `
+})
+export class App {
+    constructor() {
+        this.options = {
+            title : { text : 'simple chart' },
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2],
+            }]
+        };
+
+        // Load the fonts
+        Highcharts.createElement('link', {
+        href: 'https://fonts.googleapis.com/css?family=Roboto:400,700',
+        rel: 'stylesheet',
+        type: 'text/css'
+        }, null, document.getElementsByTagName('head')[0]);
+
+        let defaultGlobalOptions:HighChartsTypings.GlobalOptions;
+        
+        defaultGlobalOptions = {
+            chart: {
+                backgroundColor: null,
+                style: {
+                    fontFamily: 'Roboto'
+                }
+            }
+        }
+
+        Highcharts.setOptions(defaultGlobalOptions);
+    }
+
+    options: HighChartsTypings.Options;
+}
+```
 ### Access to the Highcharts Static Members and Modules
 
 The Highchart modules are not really ES6 compatiable so access to highcharts native API depends on environment configuration 
@@ -193,9 +286,9 @@ The `type` property allows you to specify chart type. Possible values are:
 * `Map` (To use this type you need to load the 'highcharts/modules/map' module additionally. [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview))
 
 ```TypeScript
+import * as HighCharts from 'highcharts';
 @Component({
     selector: 'stock-chart-example',
-    directives: [CHART_DIRECTIVES],
     template: `<chart type="StockChart" [options]="options"></chart>`
 })
 export class StockChartExample {
@@ -213,7 +306,7 @@ export class StockChartExample {
             };
         });
     }
-    options: Object;
+    options: HighCharts.Option;
 }
 ```
 [Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
