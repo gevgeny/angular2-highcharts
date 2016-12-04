@@ -1,2 +1,3 @@
-declare var Highcharts: any;
-export { Highcharts };
+declare var ClassicModeHighcharts: any;
+declare var StyledModeHighcharts: any;
+export { ClassicModeHighcharts, StyledModeHighcharts };

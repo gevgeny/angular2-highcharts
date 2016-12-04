@@ -1,14 +1,21 @@
 import * as highcharts from 'highcharts';
 
-import { Highcharts } from './HighchartsWrapper';
-import { Injectable } from '@angular/core';
+import { ClassicModeHighcharts, StyledModeHighcharts } from './HighchartsWrapper';
 
-
-@Injectable()
-export class HighchartsService {
+export abstract class HighchartsService {
     Highcharts : highcharts.Static;
+}
 
+export class ClassicModeHighchartsService extends HighchartsService {
     constructor() {
-        this.Highcharts = Highcharts;
+        super();
+        this.Highcharts = ClassicModeHighcharts;
+    }
+}
+
+export class StyledModeHighchartsService extends HighchartsService {
+    constructor() {
+        super();
+        this.Highcharts = StyledModeHighcharts;
     }
 }
