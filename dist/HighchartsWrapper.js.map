@@ -1,1 +1,1 @@
-{"version":3,"file":"HighchartsWrapper.js","sourceRoot":"","sources":["../src/HighchartsWrapper.ts"],"names":[],"mappings":";AAEA,IAAI,UAAU,GAAG,OAAO,CAAC,YAAY,CAAC;AAC7B,kBAAU,cADoB;AACjB"}
+{"version":3,"file":"HighchartsWrapper.js","sourceRoot":"","sources":["../src/HighchartsWrapper.ts"],"names":[],"mappings":";AAEA,IAAI,qBAAqB,GAAG,OAAO,CAAC,YAAY,CAAC;AAExC,6BAAqB,yBAFoB;AAClD,IAAI,oBAAoB,GAAG,OAAO,CAAC,0BAA0B,CAAC;AAC9B,4BAAoB,wBADW;AACR"}

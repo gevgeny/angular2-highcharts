@@ -45,7 +45,6 @@ var ChartComponent = (function () {
         { type: core_1.Component, args: [{
                     selector: 'chart',
                     template: '',
-                    providers: [HighchartsService_1.HighchartsService],
                 },] },
     ];
     ChartComponent.ctorParameters = [

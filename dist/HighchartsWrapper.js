@@ -1,4 +1,6 @@
 "use strict";
-var Highcharts = require('highcharts');
-exports.Highcharts = Highcharts;
+var ClassicModeHighcharts = require('highcharts');
+exports.ClassicModeHighcharts = ClassicModeHighcharts;
+var StyledModeHighcharts = require('highcharts/js/highcharts');
+exports.StyledModeHighcharts = StyledModeHighcharts;
 //# sourceMappingURL=HighchartsWrapper.js.map

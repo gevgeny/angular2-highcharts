@@ -13,7 +13,6 @@ import { createBaseOpts } from './createBaseOpts';
 @Component({
     selector: 'chart',
     template: '',
-    providers: [HighchartsService],
 })
 export class ChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
