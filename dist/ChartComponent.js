@@ -1,11 +1,21 @@
 "use strict";
-var core_1 = require('@angular/core');
-var ChartSeriesComponent_1 = require('./ChartSeriesComponent');
-var ChartXAxisComponent_1 = require('./ChartXAxisComponent');
-var ChartYAxisComponent_1 = require('./ChartYAxisComponent');
-var HighchartsService_1 = require('./HighchartsService');
-var initChart_1 = require('./initChart');
-var createBaseOpts_1 = require('./createBaseOpts');
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var highcharts = require("highcharts");
+var core_1 = require("@angular/core");
+var ChartSeriesComponent_1 = require("./ChartSeriesComponent");
+var ChartXAxisComponent_1 = require("./ChartXAxisComponent");
+var ChartYAxisComponent_1 = require("./ChartYAxisComponent");
+var HighchartsService_1 = require("./HighchartsService");
+var initChart_1 = require("./initChart");
+var createBaseOpts_1 = require("./createBaseOpts");
 var ChartComponent = (function () {
     function ChartComponent(element, highchartsService) {
         this.create = new core_1.EventEmitter();
@@ -41,35 +51,76 @@ var ChartComponent = (function () {
         this.baseOpts = createBaseOpts_1.createBaseOpts(this, this.series, this.series ? this.series.point : null, this.xAxis, this.yAxis, this.element.nativeElement);
         this.init();
     };
-    ChartComponent.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'chart',
-                    template: '',
-                    providers: [HighchartsService_1.HighchartsService],
-                },] },
-    ];
-    ChartComponent.ctorParameters = [
-        { type: core_1.ElementRef, },
-        { type: HighchartsService_1.HighchartsService, },
-    ];
-    ChartComponent.propDecorators = {
-        'series': [{ type: core_1.ContentChild, args: [ChartSeriesComponent_1.ChartSeriesComponent,] },],
-        'xAxis': [{ type: core_1.ContentChild, args: [ChartXAxisComponent_1.ChartXAxisComponent,] },],
-        'yAxis': [{ type: core_1.ContentChild, args: [ChartYAxisComponent_1.ChartYAxisComponent,] },],
-        'create': [{ type: core_1.Output },],
-        'click': [{ type: core_1.Output },],
-        'addSeries': [{ type: core_1.Output },],
-        'afterPrint': [{ type: core_1.Output },],
-        'beforePrint': [{ type: core_1.Output },],
-        'drilldown': [{ type: core_1.Output },],
-        'drillup': [{ type: core_1.Output },],
-        'load': [{ type: core_1.Output },],
-        'redraw': [{ type: core_1.Output },],
-        'selection': [{ type: core_1.Output },],
-        'type': [{ type: core_1.Input },],
-        'options': [{ type: core_1.Input },],
-    };
     return ChartComponent;
 }());
+__decorate([
+    core_1.ContentChild(ChartSeriesComponent_1.ChartSeriesComponent),
+    __metadata("design:type", ChartSeriesComponent_1.ChartSeriesComponent)
+], ChartComponent.prototype, "series", void 0);
+__decorate([
+    core_1.ContentChild(ChartXAxisComponent_1.ChartXAxisComponent),
+    __metadata("design:type", ChartXAxisComponent_1.ChartXAxisComponent)
+], ChartComponent.prototype, "xAxis", void 0);
+__decorate([
+    core_1.ContentChild(ChartYAxisComponent_1.ChartYAxisComponent),
+    __metadata("design:type", ChartYAxisComponent_1.ChartYAxisComponent)
+], ChartComponent.prototype, "yAxis", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "create", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "click", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "addSeries", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "afterPrint", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "beforePrint", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "drilldown", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "drillup", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "load", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "redraw", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChartComponent.prototype, "selection", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ChartComponent.prototype, "type", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], ChartComponent.prototype, "options", null);
+ChartComponent = __decorate([
+    core_1.Component({
+        selector: 'chart',
+        template: '&nbsp;',
+        providers: [HighchartsService_1.HighchartsService],
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef, HighchartsService_1.HighchartsService])
+], ChartComponent);
 exports.ChartComponent = ChartComponent;
 //# sourceMappingURL=ChartComponent.js.map
