@@ -12,7 +12,7 @@ import { createBaseOpts } from './createBaseOpts';
 
 @Component({
     selector: 'chart',
-    template: '',
+    template: '&nbsp;',
     providers: [HighchartsService],
 })
 export class ChartComponent {

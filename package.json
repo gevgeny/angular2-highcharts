@@ -4,7 +4,7 @@
   "description": "Highcharts for your Angular2 project",
   "scripts": {
     "watch": "ntsc -w",
-    "build": "rm -rf dist && ngc && mv src/*.ngfactory.ts dist/",
+    "build": "rm -rf dist && ngc",
     "test": "karma start karma.conf.js"
   },
   "repository": {
