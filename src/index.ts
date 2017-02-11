@@ -22,7 +22,7 @@ export const getHighchartsStatic = () => _highchartsStatic;
 export class ChartModule {
     static init(highchartsStatic, ...highchartsModules) {
         if (!highchartsStatic) {
-            throw new Error('Highcharts, Highstock or Highmaps static cannot be empty.')
+            throw new Error('Highcharts module cannot be empty.')
         }
 
         // Save Highcharts/Highstock/Highmaps static

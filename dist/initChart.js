@@ -2,6 +2,9 @@
 var deepAssign_1 = require("./deepAssign");
 function initChart(highchartsService, userOpts, baseOpts, type) {
     var Highcharts = highchartsService.getHighchartsStatic();
+    if (!Highcharts) {
+        throw new Error('Base Highcharts module should be set via ChartModule.init');
+    }
     if (!Highcharts[type]) {
         throw new Error(type + " is unknown chart type.");
     }

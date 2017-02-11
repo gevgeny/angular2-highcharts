@@ -34,7 +34,7 @@ var ChartModule = ChartModule_1 = (function () {
             highchartsModules[_i - 1] = arguments[_i];
         }
         if (!highchartsStatic) {
-            throw new Error('Highcharts, Highstock or Highmaps static cannot be empty.');
+            throw new Error('Highcharts module cannot be empty.');
         }
         _highchartsStatic = highchartsStatic;
         highchartsModules.forEach(function (module) {
