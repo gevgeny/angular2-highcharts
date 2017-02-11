@@ -1,3 +1,7 @@
+export declare class HighchartsStatic {
+}
 export declare class HighchartsService {
-    getHighchartsStatic(): Object;
+    _highchartsStatice: HighchartsStatic;
+    constructor(highchartsStatic: HighchartsStatic);
+    getHighchartsStatic(): HighchartsStatic;
 }

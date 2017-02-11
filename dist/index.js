@@ -16,6 +16,7 @@ var ChartXAxisComponent_1 = require("./ChartXAxisComponent");
 exports.ChartXAxisComponent = ChartXAxisComponent_1.ChartXAxisComponent;
 var ChartYAxisComponent_1 = require("./ChartYAxisComponent");
 exports.ChartYAxisComponent = ChartYAxisComponent_1.ChartYAxisComponent;
+var HighchartsService_1 = require("./HighchartsService");
 var _highchartsStatic;
 var CHART_DIRECTIVES = [
     ChartComponent_1.ChartComponent,
@@ -24,10 +25,6 @@ var CHART_DIRECTIVES = [
     ChartXAxisComponent_1.ChartXAxisComponent,
     ChartYAxisComponent_1.ChartYAxisComponent
 ];
-function getHighchartsStatic() {
-    return _highchartsStatic;
-}
-exports.getHighchartsStatic = getHighchartsStatic;
 var ChartModule = ChartModule_1 = (function () {
     function ChartModule() {
     }
@@ -36,19 +33,23 @@ var ChartModule = ChartModule_1 = (function () {
         for (var _i = 1; _i < arguments.length; _i++) {
             highchartsModules[_i - 1] = arguments[_i];
         }
-        if (!highchartsStatic) {
-            throw new Error('Highcharts module cannot be empty.');
-        }
-        _highchartsStatic = highchartsStatic;
         highchartsModules.forEach(function (module) {
-            module(_highchartsStatic);
+            module(highchartsStatic);
         });
-        return { ngModule: ChartModule_1 };
+        return {
+            ngModule: ChartModule_1,
+            providers: [
+                { provide: HighchartsService_1.HighchartsStatic, useValue: highchartsStatic }
+            ]
+        };
     };
     return ChartModule;
 }());
 ChartModule = ChartModule_1 = __decorate([
-    core_1.NgModule({ declarations: [CHART_DIRECTIVES], exports: [CHART_DIRECTIVES] })
+    core_1.NgModule({
+        declarations: [CHART_DIRECTIVES],
+        exports: [CHART_DIRECTIVES]
+    })
 ], ChartModule);
 exports.ChartModule = ChartModule;
 var ChartModule_1;

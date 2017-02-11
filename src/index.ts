@@ -5,8 +5,7 @@ import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartPointComponent } from './ChartPointComponent';
 import { ChartXAxisComponent } from './ChartXAxisComponent';
 import { ChartYAxisComponent } from './ChartYAxisComponent';
-
-let _highchartsStatic: Object;
+import { HighchartsStatic } from './HighchartsService'
 
 const CHART_DIRECTIVES: any[] = [
     ChartComponent,
@@ -16,26 +15,23 @@ const CHART_DIRECTIVES: any[] = [
     ChartYAxisComponent
 ];
 
-export function getHighchartsStatic() {
-    return _highchartsStatic;
-}
-
-@NgModule({ declarations: [CHART_DIRECTIVES], exports: [CHART_DIRECTIVES] })
+@NgModule({
+    declarations: [CHART_DIRECTIVES],
+    exports: [CHART_DIRECTIVES]
+})
 export class ChartModule {
-    static forRoot(highchartsStatic: Object, ...highchartsModules): ModuleWithProviders {
-        if (!highchartsStatic) {
-            throw new Error('Highcharts module cannot be empty.')
-        }
-
-        // Save Highcharts/Highstock/Highmaps static
-        _highchartsStatic = highchartsStatic;
-
+    static forRoot(highchartsStatic: HighchartsStatic, ...highchartsModules: Array<Function>): ModuleWithProviders {
         // Plug highcharts modules
         highchartsModules.forEach((module) => {
-            module(_highchartsStatic)
+            module(highchartsStatic)
         });
 
-        return { ngModule: ChartModule }
+        return {
+            ngModule: ChartModule,
+            providers: [
+                { provide: HighchartsStatic, useValue: highchartsStatic }
+            ]
+        }
     }
 }
 

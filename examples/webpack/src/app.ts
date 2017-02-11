@@ -40,7 +40,7 @@ declare var require: any;
         JsonpModule,
         ChartModule.forRoot(
             require('../../../node_modules/highcharts/highstock.src'),
-            require('../../../node_modules/highcharts/highcharts-3d.js')
+            require('../../../node_modules/highcharts/highcharts-3d.src.js')
         )
     ],
     declarations: [
