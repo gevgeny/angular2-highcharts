@@ -1,3 +1,3 @@
 export declare class HighchartsService {
-    getHighchartsStatic(): any;
+    getHighchartsStatic(): Object;
 }

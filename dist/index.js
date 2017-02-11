@@ -24,11 +24,14 @@ var CHART_DIRECTIVES = [
     ChartXAxisComponent_1.ChartXAxisComponent,
     ChartYAxisComponent_1.ChartYAxisComponent
 ];
-exports.getHighchartsStatic = function () { return _highchartsStatic; };
+function getHighchartsStatic() {
+    return _highchartsStatic;
+}
+exports.getHighchartsStatic = getHighchartsStatic;
 var ChartModule = ChartModule_1 = (function () {
     function ChartModule() {
     }
-    ChartModule.init = function (highchartsStatic) {
+    ChartModule.forRoot = function (highchartsStatic) {
         var highchartsModules = [];
         for (var _i = 1; _i < arguments.length; _i++) {
             highchartsModules[_i - 1] = arguments[_i];

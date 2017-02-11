@@ -1,5 +1,5 @@
-import {Component} from '../../node_modules/@angular/core';
-import { Jsonp } from '../../node_modules/@angular/http';
+import {Component} from '../../../node_modules/@angular/core';
+import { Jsonp } from '../../../node_modules/@angular/http';
 
 @Component({
     selector: 'stock-chart-example',
