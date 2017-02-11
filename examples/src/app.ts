@@ -32,8 +32,17 @@ class App {
 
 }
 
+declare var require: any;
+
 @NgModule({
-    imports: [BrowserModule, JsonpModule, ChartModule],
+    imports: [
+        BrowserModule,
+        JsonpModule,
+        ChartModule.init(
+            require('../../node_modules/highcharts/highstock.src'),
+            require('../../node_modules/highcharts/highcharts-3d.js')
+        )
+    ],
     declarations: [
         App,
         SimpleChartExample,

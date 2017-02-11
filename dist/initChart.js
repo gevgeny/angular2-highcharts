@@ -1,7 +1,8 @@
 "use strict";
-var deepAssign_1 = require('./deepAssign');
+var deepAssign_1 = require("./deepAssign");
 function initChart(highchartsService, userOpts, baseOpts, type) {
-    if (!highchartsService.Highcharts[type]) {
+    var Highcharts = highchartsService.getHighchartsStatic();
+    if (!Highcharts[type]) {
         throw new Error(type + " is unknown chart type.");
     }
     if (Array.isArray(userOpts.xAxis)) {
@@ -11,7 +12,7 @@ function initChart(highchartsService, userOpts, baseOpts, type) {
         baseOpts.yAxis = [baseOpts.yAxis];
     }
     var opts = deepAssign_1.deepAssign({}, baseOpts, userOpts);
-    return new highchartsService.Highcharts[type](opts);
+    return new Highcharts[type](opts);
 }
 exports.initChart = initChart;
 //# sourceMappingURL=initChart.js.map

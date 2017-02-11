@@ -2,10 +2,10 @@ import {Component} from '../../node_modules/@angular/core';
 import { Jsonp } from '../../node_modules/@angular/http';
 
 declare var require: any;
-const Highcharts = require('../../node_modules/highcharts/highstock.src');
-const Highcharts3d = require('../../node_modules/highcharts/highcharts-3d.js');
+//const Highcharts = require('../../node_modules/highcharts/highstock.src');
+//const Highcharts3d = require('../../node_modules/highcharts/highcharts-3d.js');
 
-Highcharts3d(Highcharts);
+//Highcharts3d(Highcharts);
 
 @Component({
     selector: 'highcharts-module-example',

@@ -1,28 +1,33 @@
 "use strict";
-var core_1 = require('@angular/core');
-var testing_1 = require('@angular/core/testing');
-var ChartComponent_1 = require('./ChartComponent');
-var ChartPointComponent_1 = require('./ChartPointComponent');
-var ChartSeriesComponent_1 = require('./ChartSeriesComponent');
-var ChartXAxisComponent_1 = require('./ChartXAxisComponent');
-var ChartYAxisComponent_1 = require('./ChartYAxisComponent');
-var HighchartsService_1 = require('./HighchartsService');
-var Mocks_1 = require('./Mocks');
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var core_1 = require("@angular/core");
+var testing_1 = require("@angular/core/testing");
+var ChartComponent_1 = require("./ChartComponent");
+var ChartPointComponent_1 = require("./ChartPointComponent");
+var ChartSeriesComponent_1 = require("./ChartSeriesComponent");
+var ChartXAxisComponent_1 = require("./ChartXAxisComponent");
+var ChartYAxisComponent_1 = require("./ChartYAxisComponent");
+var HighchartsService_1 = require("./HighchartsService");
+var Mocks_1 = require("./Mocks");
 function main() {
     describe('ChartComponent', function () {
         var highchartsServiceMock;
         var TestComponent = (function () {
             function TestComponent() {
             }
-            TestComponent.decorators = [
-                { type: core_1.Component, args: [{
-                            selector: 'test-component',
-                            template: ''
-                        },] },
-            ];
-            TestComponent.ctorParameters = function () { return []; };
             return TestComponent;
         }());
+        TestComponent = __decorate([
+            core_1.Component({
+                selector: 'test-component',
+                template: ''
+            })
+        ], TestComponent);
         beforeEach(function () {
             highchartsServiceMock = new Mocks_1.HighchartsServiceMock();
             testing_1.TestBed.configureTestingModule({
@@ -57,9 +62,9 @@ function main() {
         it('should create simple chart object', function (done) {
             create('<chart [options]="options"></chart>').then(function (fixture) {
                 fixture.componentInstance.options = ['options'];
-                spyOn(highchartsServiceMock.Highcharts, 'Chart');
+                spyOn(highchartsServiceMock.getHighchartsStatic(), 'Chart');
                 fixture.detectChanges();
-                expect(highchartsServiceMock.Highcharts.Chart).toHaveBeenCalled();
+                expect(highchartsServiceMock.getHighchartsStatic().Chart).toHaveBeenCalled();
                 done();
             });
         });

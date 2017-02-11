@@ -6,9 +6,6 @@ module.exports = {
         filename: "bundle.js"
     },
     resolve: {
-        alias: {
-            highcharts: "../node_modules/highcharts/highstock.src.js"
-        },
         extensions: ['', '.webpack.js', '.web.js', '.ts',  '.js']
     },
     module: {

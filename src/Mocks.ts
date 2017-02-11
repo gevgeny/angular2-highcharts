@@ -27,19 +27,16 @@ export class ChartEventEmitter {
 export class HighchartsChartObjectMock {
     constructor (_opts) {
         opts = _opts;
-        //HighchartsServiceMock.highchartsChartObjectMock = this;
     }
 }
+const highchartsStatic =  {
+    Chart : HighchartsChartObjectMock,
+    StockChart : HighchartsChartObjectMock
+};
 
 @Injectable()
 export class HighchartsServiceMock {
-    //static highchartsChartObjectMock : HighchartsChartObjectMock;
-    Highcharts : Object;
-    constructor() {
-
-        this.Highcharts = {
-            Chart : HighchartsChartObjectMock,
-            StockChart : HighchartsChartObjectMock
-        };
+    getHighchartsStatic() {
+        return highchartsStatic;
     }
 }

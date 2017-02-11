@@ -9,6 +9,8 @@ export declare class HighchartsChartObjectMock {
     constructor(_opts: any);
 }
 export declare class HighchartsServiceMock {
-    Highcharts: Object;
-    constructor();
+    getHighchartsStatic(): {
+        Chart: typeof HighchartsChartObjectMock;
+        StockChart: typeof HighchartsChartObjectMock;
+    };
 }
