@@ -9,7 +9,9 @@
 [![npm downloads](https://img.shields.io/npm/dm/angular2-highcharts.svg)](https://www.npmjs.com/package/angular2-highcharts)
 
 ## Table of Contents
- - [Installation](#installation)
+ - [Setting Up](#setting-up)
+  - [Install angular2-highcharts](#install-angular2-highcharts)
+  - [Setup App @NgModule](#setup-app-ngmodule)
  - [Usage](#usage)
   - [Basic Usage](#basic-usage)
     - [Setup App Module](#setup-app-module)
@@ -26,12 +28,34 @@
  - [FAQ](#faq)
  - [License](#license)
 
-## Installation
+## Setting Up
+
+### Install angular2-highcharts
 ```
 npm install angular2-highcharts --save
 ```
+
+### Setup App @NgModule
+```TypeScript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ChartModule } from 'angular2-highcharts';
+import { App } from './App';
+
+@NgModule({
+    imports: [BrowserModule, ChartModule.forRoot(require('highcharts')],
+    declarations: [App],
+    bootstrap: [App]
+})
+export class AppModule {}
+```
+
+### For angular-cli and other Webpack environments
+No any additional setup needed
+
 ### For SystemJS environment
 You should add appropriate mapping to your `systemjs.config.js`
+
 ```js
 ...
 map: {
@@ -55,20 +79,6 @@ packages: {
 ## Usage
 
 ### Basic Usage
-#### Setup App Module
-```TypeScript
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { ChartModule } from 'angular2-highcharts';
-import { App } from './App';
-
-@NgModule({
-    imports: [BrowserModule, ChartModule.forRoot(require('highcharts')],
-    declarations: [App],
-    bootstrap: [App]
-})
-export class AppModule {}
-```
 
 #### Create First Chart Component
 Main charts functionality provided by the `chart` component and its `options` property.
