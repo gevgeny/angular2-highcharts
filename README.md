@@ -69,6 +69,7 @@ map: {
 packages: {
   ...
   highcharts: {
+    main: './highcharts.js',
     defaultExtension: 'js'
   },
   'angular2-highcharts': {
