@@ -125,7 +125,8 @@ onChartSelection (e) {
   this.to = e.originalEvent.xAxis[0].max.toFixed(2);
 }
 ```
-[Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
+
 #### Series Events 
 
 To use series events the same way you need to add the `series` component as a child of your chart. The only purpose of this auxiliary component is to provide access to [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) API
