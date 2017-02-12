@@ -205,44 +205,43 @@ class AppComponent {
 }
 ```
 [Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
+
+### Highstock
+
+### Highstock and Highmaps
+The `type` property allows you to specify chart type. Possible values are:
+* `Chart` (Default value)
+* `StockChart` [Live Demo] http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview
+* `Map` [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview))
+
+Also you need to change your `@NgModule` setup.
+If you are going to use Higstock you should load another highcharts core module:
+```TypeScript
+...
+@NgModule({
+    ...
+    imports: [BrowserModule, ChartModule.forRoot(require('highcharts/highstock')],
+})
+```
+If you are going to use Highmaps:
+```TypeScript
+...
+@NgModule({
+    ...
+    imports: [BrowserModule, ChartModule.forRoot(require('highcharts/highmap')],
+})
+```
+
+### Add Highcharts Modules
+Any other modules should be also loaded during @NgModule setup
+
+
 ### Access to the Highcharts Static Members and Modules
 
 The Highchart modules are not really ES6 compatiable so access to highcharts native API depends on environment configuration 
 See the SystemJS and Webpack examples apps 
 - https://github.com/gevgeny/angular2-webpack-starter-and-angular2-highcharts/blob/master/src/app/home/home.component.ts
 - https://github.com/gevgeny/angular2-quickstart-and-angular2-highcharts/blob/master/app/app.component.ts
-
-### Highstock and Highmaps
-The `type` property allows you to specify chart type. Possible values are:
-* `Chart` (Default value)
-* `StockChart`
-* `Map` (To use this type you need to load the 'highcharts/modules/map' module additionally. [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview))
-
-```TypeScript
-@Component({
-    selector: 'stock-chart-example',
-    directives: [CHART_DIRECTIVES],
-    template: `<chart type="StockChart" [options]="options"></chart>`
-})
-export class StockChartExample {
-    constructor(jsonp : Jsonp) {
-        jsonp.request('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=JSONP_CALLBACK').subscribe(res => {
-            this.options = {
-                title : { text : 'AAPL Stock Price' },
-                series : [{
-                    name : 'AAPL',
-                    data : res.json(),
-                    tooltip: {
-                        valueDecimals: 2
-                    }
-                }]
-            };
-        });
-    }
-    options: Object;
-}
-```
-[Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
 
 ##More Examples
 
