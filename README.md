@@ -22,8 +22,10 @@
     - [Point Events](#point-events)
     - [Axis Events](#axis-events)
   - [Dynamic Interaction with Chart Object](#dynamic-interaction-with-chart-object)
-  - [Access to the Highcharts Static Members and Modules](#access-to-the-highcharts-static-members-and-modules)
-  - [Highstock and Highmaps](#highstock-and-highmaps)
+  - [Highstock](#highstock)
+  - [Highmaps](#highmaps)
+  - [Add Highcharts Modules](#add-highcharts-modules)
+  - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
  -  [More Examples](#more-examples) 
  - [FAQ](#faq)
  - [License](#license)
@@ -251,7 +253,7 @@ Also you need to change your `@NgModule` setup.
 
 
 ### Add Highcharts Modules
-Any other modules like highchart-3d, highchart-exporintg and etc. should be also added in `@NgModule` after main chart module
+Any other modules like highcharts-3d, highcharts-exporintg and etc. can be also added in `@NgModule` after main chart module
 
 ```diff
 ...
