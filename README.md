@@ -273,7 +273,7 @@ Any other modules like highcharts-3d, highcharts-exporintg and etc. can be also 
 
 Check out structure of the `node-modules/highcharts` folder to find necessary module.
 
-👉 [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPfgd?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/sz6OfccvAetQcBX8KFXy?p=preview)
 
 
 
