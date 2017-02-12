@@ -47,7 +47,7 @@ import { App } from './App';
 @NgModule({
     imports: [
       BrowserModule, 
-      ChartModule.forRoot(require('highcharts')
+      ChartModule.forRoot(require('highcharts'))
     ],
     declarations: [App],
     bootstrap: [App]
@@ -226,7 +226,7 @@ Also you need to change your `@NgModule` setup.
     imports: [
       BrowserModule, 
       ChartModule.forRoot(
--       require('highcharts')
+-       require('highcharts'),
 +       require('highcharts/highstock')
       )
     ]
@@ -248,9 +248,10 @@ Also you need to change your `@NgModule` setup.
     imports: [
       BrowserModule, 
       ChartModule.forRoot(
--       require('highcharts')
+-       require('highcharts'),
 +       require('highcharts/highmaps')
-      ],
+      )
+    ],
 })
 ```
 
@@ -270,7 +271,8 @@ Any other modules like highcharts-3d, highcharts-exporintg and etc. can be also 
         require('highcharts'),
 +       require('highcharts/highchart-3d'),
 +       require('highcharts/modules/exporting')
-      ],
+      )
+    ],
 })
 ```
 
@@ -296,8 +298,9 @@ Highcharts.setOptions({
       BrowserModule, 
       ChartModule.forRoot(
 -       require('highcharts'),
-+       Highcharts,
-      ],
++       Highcharts
+      )
+    ],
 })
 ```
 
