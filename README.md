@@ -30,10 +30,27 @@
 ```
 npm install angular2-highcharts --save
 ```
-The full installation process depends on environment you are using to run your angular2 app. Here are some examples:
-- [angular2-webpack-starter (Webpack)](https://github.com/gevgeny/angular2-webpack-starter-and-angular2-highcharts)
-- [angular/quickstart (SystemJS)](https://github.com/gevgeny/angular2-quickstart-and-angular2-highcharts)
-
+### For SystemJS environment
+You should add appropriate mapping to your `systemjs.config.js`
+```js
+...
+map: {
+  ...
+  'angular2-highcharts': 'npm:angular2-highcharts',
+  'highcharts': 'npm:highcharts',
+}
+...
+packages: {
+  ...
+  highcharts: {
+    defaultExtension: 'js'
+  },
+  'angular2-highcharts': {
+    main: './index.js',
+    defaultExtension: 'js'
+  }
+}
+```
 
 ## Usage
 
@@ -46,7 +63,7 @@ import { ChartModule } from 'angular2-highcharts';
 import { App } from './App';
 
 @NgModule({
-    imports: [BrowserModule, ChartModule],
+    imports: [BrowserModule, ChartModule.forRoot(require('highcharts')],
     declarations: [App],
     bootstrap: [App]
 })
