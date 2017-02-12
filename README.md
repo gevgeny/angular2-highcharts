@@ -1,6 +1,6 @@
 # angular2-highcharts
 
-> Highcharts chart components for Angular apps. 👉 [Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
+> Highcharts chart components for Angular apps. 👉 [Live Demo](http://plnkr.co/edit/AJwozFWVR7TkQZnt05dN?p=preview)
 
 
 [![build](https://travis-ci.org/gevgeny/angular2-highcharts.svg?branch=master)](https://travis-ci.org/gevgeny/angular2-highcharts)
@@ -125,7 +125,8 @@ onChartSelection (e) {
   this.to = e.originalEvent.xAxis[0].max.toFixed(2);
 }
 ```
-[Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
+
 #### Series Events 
 
 To use series events the same way you need to add the `series` component as a child of your chart. The only purpose of this auxiliary component is to provide access to [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) API
