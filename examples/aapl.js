@@ -1,4 +1,4 @@
-cb(/* AAPL historical OHLC data from the Google Finance API */
+JSONP_CALLBACK(/* AAPL historical OHLC data from the Google Finance API */
 [
 /* Feb 2010 */
 [1266278400000,29.06],
