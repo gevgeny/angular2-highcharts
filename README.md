@@ -211,11 +211,18 @@ class AppComponent {
 <chart type="StockChart" [options]="options"></chart>
 ```
 Also you need to change your `@NgModule` setup.
-```TypeScript
+
+```diff
 ...
 @NgModule({
     ...
-    imports: [BrowserModule, ChartModule.forRoot(require('highcharts/highstock')],
+    imports: [
+      BrowserModule, 
+      ChartModule.forRoot(
+-       require('highcharts')
++       require('highcharts/highstock')
+      )
+    ]
 })
 ```
 
