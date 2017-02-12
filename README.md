@@ -45,7 +45,10 @@ import { ChartModule } from 'angular2-highcharts';
 import { App } from './App';
 
 @NgModule({
-    imports: [BrowserModule, ChartModule.forRoot(require('highcharts')],
+    imports: [
+      BrowserModule, 
+      ChartModule.forRoot(require('highcharts')
+    ],
     declarations: [App],
     bootstrap: [App]
 })
@@ -278,6 +281,27 @@ Check out structure of the `node-modules/highcharts` folder to find necessary mo
 
 
 ### Access to the Highcharts Static Members 
+
+```diff
+...
+
++ const Highcharts = require('highcharts');
++ Highcharts.setOptions({
++   colors: ['#50B432']
++ });
+
+@NgModule({
+    ...
+    imports: [
+      BrowserModule, 
+      ChartModule.forRoot(
+-       require('highcharts'),
++       Highcharts,
+      ],
+})
+```
+
+👉 [Live Demo](http://plnkr.co/edit/uCtPFUExmZFG0diOvbXS?p=preview)
 
 ##More Examples
 
