@@ -17,7 +17,6 @@ exports.ChartXAxisComponent = ChartXAxisComponent_1.ChartXAxisComponent;
 var ChartYAxisComponent_1 = require("./ChartYAxisComponent");
 exports.ChartYAxisComponent = ChartYAxisComponent_1.ChartYAxisComponent;
 var HighchartsService_1 = require("./HighchartsService");
-var _highchartsStatic;
 var CHART_DIRECTIVES = [
     ChartComponent_1.ChartComponent,
     ChartSeriesComponent_1.ChartSeriesComponent,

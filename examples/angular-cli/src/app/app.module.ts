@@ -7,9 +7,6 @@ import { AppComponent } from './app.component';
 
 import { ChartModule } from 'angular2-highcharts';
 
-const highstock: Object = require('highcharts/highstock');
-const chartModule: any = ChartModule.forRoot(highstock);
-
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +15,10 @@ const chartModule: any = ChartModule.forRoot(highstock);
     BrowserModule,
     FormsModule,
     HttpModule,
-    chartModule
+    ChartModule.forRoot(
+        require('highcharts/highstock'),
+        require('highcharts/modules/exporting')
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
