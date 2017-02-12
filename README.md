@@ -65,8 +65,8 @@ You should add appropriate mapping to your `systemjs.config.js`
 ...
 map: {
   ...
-  'angular2-highcharts': 'npm:angular2-highcharts',
-  'highcharts': 'npm:highcharts',
+  'angular2-highcharts': 'node_modules/angular2-highcharts',
+  'highcharts': 'node_modules/highcharts',
 }
 ...
 packages: {
