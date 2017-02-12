@@ -206,16 +206,11 @@ class AppComponent {
 ```
 [Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
 
-### Highstock
-
-### Highstock and Highmaps
-The `type` property allows you to specify chart type. Possible values are:
-* `Chart` (Default value)
-* `StockChart` [Live Demo] http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview
-* `Map` [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview))
-
+### Highstock 
+```
+<chart type="StockChart" [options]="options"></chart>
+```
 Also you need to change your `@NgModule` setup.
-If you are going to use Higstock you should load another highcharts core module:
 ```TypeScript
 ...
 @NgModule({
@@ -223,29 +218,50 @@ If you are going to use Higstock you should load another highcharts core module:
     imports: [BrowserModule, ChartModule.forRoot(require('highcharts/highstock')],
 })
 ```
-If you are going to use Highmaps:
+
+[Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
+
+### Highmaps
+```
+<chart type="Map" [options]="options"></chart>
+```
+Also you need to change your `@NgModule` setup.
 ```TypeScript
 ...
 @NgModule({
     ...
-    imports: [BrowserModule, ChartModule.forRoot(require('highcharts/highmap')],
+    imports: [BrowserModule, ChartModule.forRoot(require('highcharts/highmaps')],
 })
 ```
+[Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview)
+
 
 ### Add Highcharts Modules
-Any other modules should be also loaded during @NgModule setup
+Any other modules like highchart-3d, highchart-exporintg and etc. should be also added in `@NgModule` after main chart module
+```TypeScript
+...
+@NgModule({
+    ...
+    imports: [
+      BrowserModule, 
+      ChartModule.forRoot(
+        require('highcharts'),
+        require('highcharts/highchart-3d'),
+        require('highcharts/modules/exporting')
+      ],
+})
+```
+Check out structure of the `node-modules/highcharts` folder to find necessary module
+[Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPfgd?p=preview)
 
 
-### Access to the Highcharts Static Members and Modules
 
-The Highchart modules are not really ES6 compatiable so access to highcharts native API depends on environment configuration 
-See the SystemJS and Webpack examples apps 
-- https://github.com/gevgeny/angular2-webpack-starter-and-angular2-highcharts/blob/master/src/app/home/home.component.ts
-- https://github.com/gevgeny/angular2-quickstart-and-angular2-highcharts/blob/master/app/app.component.ts
+### Access to the Highcharts Static Members 
+
 
 ##More Examples
 
-Here are some common charts examples with Webpack integration https://github.com/gevgeny/angular2-highcharts/tree/master/examples
+Here are some common charts examples with Webpack integration https://github.com/gevgeny/angular2-highcharts/tree/master/examples/webpack
 
 ##FAQ
 
