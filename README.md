@@ -1,6 +1,6 @@
 # angular2-highcharts
 
-> Highcharts chart components for Angular apps. [Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
+> Highcharts chart components for Angular apps. 👉 [Live Demo](http://plnkr.co/edit/pnkc8Iw9cSrCYn9zr0VZ?p=preview)
 
 
 [![build](https://travis-ci.org/gevgeny/angular2-highcharts.svg?branch=master)](https://travis-ci.org/gevgeny/angular2-highcharts)
@@ -106,7 +106,7 @@ export class App {
     options: Object;
 }
 ```
-[Live Demo](http://plnkr.co/edit/IuwjpPB1YQW1T7i4B8SZ?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/IuwjpPB1YQW1T7i4B8SZ?p=preview)
 
 ### Handling Events
 Highcharts itself provides bunch of events, and you still can use them with angular2-higcharts via the `options` property of the `chart` component. But it is not an angular way to handle events like this. So that 2-higcharts provides `EventEmitter<ChartEvent>` wrappers for highcharts events. `ChartEvent` is an angular2-higcharts class which simply wraps original Highcharts events (`chartEvent.originalEvent`) and adds event handler context (`chartEvent.context`) since it differs depending on events.
@@ -141,7 +141,7 @@ onSeriesMouseOver (e) {
   this.serieName = e.context.name;
 }
 ```
-[Live Demo](http://plnkr.co/edit/GkaJlk2UJjbTwsPyGXGC?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/GkaJlk2UJjbTwsPyGXGC?p=preview)
 #### Point Events 
 
 Similary you can use the `point` to access to [options.plotOptions.series.point.events](http://api.highcharts.com/highcharts#plotOptions.series.point.events) API.
@@ -153,7 +153,7 @@ Similary you can use the `point` to access to [options.plotOptions.series.point.
 </chart>
 <p><b>{{point}}</b> is selected<p>
 ```
-[Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
 #### Axis Events 
 
 Similary you can use the `xAxis` or `yAxes` to access to [options.xAxis.events](http://api.highcharts.com/highcharts#xAxis.events) or [options.yAxis.events](http://api.highcharts.com/highcharts#yAxis.events) API.
@@ -175,7 +175,7 @@ onAfterSetExtremesY (e) {
   this.maxY = e.context.max;
 }
 ```
-[Live Demo](http://plnkr.co/edit/c4ojcIRVOOwq7xmk9kfx?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/c4ojcIRVOOwq7xmk9kfx?p=preview)
 ### Dynamic Interaction with Chart Object
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
@@ -206,7 +206,7 @@ class AppComponent {
     }
 }
 ```
-[Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
 
 ### Highstock 
 ```
@@ -228,7 +228,7 @@ Also you need to change your `@NgModule` setup.
 })
 ```
 
-[Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
 
 ### Highmaps
 ```
@@ -249,7 +249,7 @@ Also you need to change your `@NgModule` setup.
 })
 ```
 
-[Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview)
 
 
 ### Add Highcharts Modules
@@ -271,7 +271,7 @@ Any other modules like highcharts-3d, highcharts-exporintg and etc. can be also 
 
 Check out structure of the `node-modules/highcharts` folder to find necessary module.
 
-[Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPfgd?p=preview)
+👉 [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPfgd?p=preview)
 
 
 
