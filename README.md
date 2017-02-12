@@ -25,7 +25,7 @@
   - [Highstock](#highstock)
   - [Highmaps](#highmaps)
   - [Add Highcharts Modules](#add-highcharts-modules)
-  - [Access to the Highcharts Static Members](#access-to-the-highcharts-static-members)
+  - [Access to the Highcharts Static API](#access-to-the-highcharts-static-api)
  -  [More Examples](#more-examples) 
  - [FAQ](#faq)
  - [License](#license)
@@ -280,15 +280,15 @@ Check out structure of the `node-modules/highcharts` folder to find necessary mo
 
 
 
-### Access to the Highcharts Static Members 
+### Access to the Highcharts Static API 
 
 ```diff
 ...
+const Highcharts = require('highcharts');
 
-+ const Highcharts = require('highcharts');
-+ Highcharts.setOptions({
-+   colors: ['#50B432']
-+ });
+Highcharts.setOptions({
+  colors: ['#50B432']
+});
 
 @NgModule({
     ...
