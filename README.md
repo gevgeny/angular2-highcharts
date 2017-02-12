@@ -233,19 +233,27 @@ Also you need to change your `@NgModule` setup.
 <chart type="Map" [options]="options"></chart>
 ```
 Also you need to change your `@NgModule` setup.
-```TypeScript
+
+```diff
 ...
 @NgModule({
     ...
-    imports: [BrowserModule, ChartModule.forRoot(require('highcharts/highmaps')],
+    imports: [
+      BrowserModule, 
+      ChartModule.forRoot(
+-       require('highcharts')
++       require('highcharts/highmaps')
+      ],
 })
 ```
+
 [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview)
 
 
 ### Add Highcharts Modules
 Any other modules like highchart-3d, highchart-exporintg and etc. should be also added in `@NgModule` after main chart module
-```TypeScript
+
+```diff
 ...
 @NgModule({
     ...
@@ -253,11 +261,12 @@ Any other modules like highchart-3d, highchart-exporintg and etc. should be also
       BrowserModule, 
       ChartModule.forRoot(
         require('highcharts'),
-        require('highcharts/highchart-3d'),
-        require('highcharts/modules/exporting')
++       require('highcharts/highchart-3d'),
++       require('highcharts/modules/exporting')
       ],
 })
 ```
+
 Check out structure of the `node-modules/highcharts` folder to find necessary module
 [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPfgd?p=preview)
 
