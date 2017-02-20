@@ -1,5 +1,5 @@
 "use strict";
-var ChartEvent_1 = require('./ChartEvent');
+var ChartEvent_1 = require("./ChartEvent");
 var chartEvents = [
     'addSeries',
     'afterPrint',

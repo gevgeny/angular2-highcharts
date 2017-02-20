@@ -1,5 +1,3 @@
-import * as highcharts from 'highcharts';
-
 import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from '@angular/core';
 
 import { ChartSeriesComponent } from './ChartSeriesComponent';
@@ -20,7 +18,7 @@ export class ChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
     @ContentChild(ChartXAxisComponent) xAxis: ChartXAxisComponent;
     @ContentChild(ChartYAxisComponent) yAxis: ChartYAxisComponent;
-    @Output() create = new EventEmitter<highcharts.ChartObject>();
+    @Output() create = new EventEmitter<any>();
     @Output() click = new EventEmitter<ChartEvent>();
     @Output() addSeries = new EventEmitter<ChartEvent>();
     @Output() afterPrint = new EventEmitter<ChartEvent>();
@@ -30,13 +28,13 @@ export class ChartComponent {
     @Output() load = new EventEmitter<ChartEvent>();
     @Output() redraw = new EventEmitter<ChartEvent>();
     @Output() selection = new EventEmitter<ChartEvent>();
-    chart: highcharts.ChartObject;
+    chart: any;
     element: ElementRef;
     highchartsService : HighchartsService;
     private userOpts: any;
     private baseOpts: any;
     @Input() type: string = 'Chart';
-    @Input() set options(opts : highcharts.Options) {
+    @Input() set options(opts : any) {
         this.userOpts = opts;
         this.init();
     };

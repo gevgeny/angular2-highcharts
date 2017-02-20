@@ -8,6 +8,7 @@
     "removeComments": true,
     "sourceMap": true,
     "outDir": "dist",
+    "declarationDir": "dist",
     "declaration": true
   },
   "compileOnSave": true,
@@ -19,5 +20,10 @@
     "index.d.ts",
     "node_modules",
     "dist"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "dist/",
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
 }

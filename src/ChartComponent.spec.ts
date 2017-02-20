@@ -58,10 +58,10 @@ export function main() {
         it('should create simple chart object', (done) => {
             create('<chart [options]="options"></chart>').then(fixture => {
                 fixture.componentInstance.options = ['options'];
-                spyOn(highchartsServiceMock.Highcharts, 'Chart');
+                spyOn(highchartsServiceMock.getHighchartsStatic(), 'Chart');
 
                 fixture.detectChanges();
-                expect(highchartsServiceMock.Highcharts.Chart).toHaveBeenCalled();
+                expect(highchartsServiceMock.getHighchartsStatic().Chart).toHaveBeenCalled();
                 done();
             })
         });
