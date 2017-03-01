@@ -1,4 +1,4 @@
-import { ElementRef, EventEmitter } from '@angular/core';
+import { ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartXAxisComponent } from './ChartXAxisComponent';
 import { ChartYAxisComponent } from './ChartYAxisComponent';
@@ -20,6 +20,7 @@ export declare class ChartComponent {
     selection: EventEmitter<ChartEvent>;
     chart: any;
     element: ElementRef;
+    zone: NgZone;
     highchartsService: HighchartsService;
     private userOpts;
     private baseOpts;
@@ -27,5 +28,5 @@ export declare class ChartComponent {
     options: any;
     private init();
     ngAfterViewInit(): void;
-    constructor(element: ElementRef, highchartsService: HighchartsService);
+    constructor(element: ElementRef, highchartsService: HighchartsService, zone: NgZone);
 }

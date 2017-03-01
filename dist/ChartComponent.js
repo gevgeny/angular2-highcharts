@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ChartSeriesComponent_1 = require("./ChartSeriesComponent");
 var ChartXAxisComponent_1 = require("./ChartXAxisComponent");
@@ -16,7 +17,7 @@ var HighchartsService_1 = require("./HighchartsService");
 var initChart_1 = require("./initChart");
 var createBaseOpts_1 = require("./createBaseOpts");
 var ChartComponent = (function () {
-    function ChartComponent(element, highchartsService) {
+    function ChartComponent(element, highchartsService, zone) {
         this.create = new core_1.EventEmitter();
         this.click = new core_1.EventEmitter();
         this.addSeries = new core_1.EventEmitter();
@@ -30,6 +31,7 @@ var ChartComponent = (function () {
         this.type = 'Chart';
         this.element = element;
         this.highchartsService = highchartsService;
+        this.zone = zone;
     }
     Object.defineProperty(ChartComponent.prototype, "options", {
         set: function (opts) {
@@ -41,9 +43,12 @@ var ChartComponent = (function () {
     });
     ;
     ChartComponent.prototype.init = function () {
+        var _this = this;
         if (this.userOpts && this.baseOpts) {
-            this.chart = initChart_1.initChart(this.highchartsService, this.userOpts, this.baseOpts, this.type);
-            this.create.emit(this.chart);
+            this.zone.runOutsideAngular(function () {
+                _this.chart = initChart_1.initChart(_this.highchartsService, _this.userOpts, _this.baseOpts, _this.type);
+                _this.create.emit(_this.chart);
+            });
         }
     };
     ChartComponent.prototype.ngAfterViewInit = function () {
@@ -119,7 +124,7 @@ ChartComponent = __decorate([
         template: '&nbsp;',
         providers: [HighchartsService_1.HighchartsService],
     }),
-    __metadata("design:paramtypes", [core_1.ElementRef, HighchartsService_1.HighchartsService])
+    __metadata("design:paramtypes", [core_1.ElementRef, HighchartsService_1.HighchartsService, core_1.NgZone])
 ], ChartComponent);
 exports.ChartComponent = ChartComponent;
 //# sourceMappingURL=ChartComponent.js.map
