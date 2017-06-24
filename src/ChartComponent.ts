@@ -27,9 +27,13 @@ export class ChartComponent {
     @Output() load = new EventEmitter<ChartEvent>();
     @Output() redraw = new EventEmitter<ChartEvent>();
     @Output() selection = new EventEmitter<ChartEvent>();
+    @Input() tooltipFormatter;
+
     chart: any;
     element: ElementRef;
     highchartsService : HighchartsService;
+    test: any;
+
     private userOpts: any;
     private baseOpts: any;
     @Input() type: string = 'Chart';

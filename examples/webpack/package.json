@@ -6,5 +6,9 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",
     "ts-loader": "^2.0.0"
+  },
+  "scripts": {
+    "run": "webpack",
+    "serve": "webpack-dev-server"
   }
 }

@@ -6,16 +6,16 @@ module.exports = {
         filename: "bundle.js"
     },
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts',  '.js']
+        extensions: ['.webpack.js', '.web.js', '.ts',  '.js']
     },
     module: {
         loaders: [
             { test: /\.ts$/, loader: 'ts-loader' }
-        ]
+        ],
+        noParse: [ /.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/ ]
     },
     devServer: {
         contentBase: "./src",
-        hot: true
-    },
-    noParse: [ /.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/ ]
+        hot: false
+    }
 };

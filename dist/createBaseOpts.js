@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ChartEvent_1 = require("./ChartEvent");
 var chartEvents = [
     'addSeries',
@@ -43,6 +44,9 @@ var yAxisEvents = [
     'pointInBreak',
     'setExtremes'
 ];
+var tooltipEvents = [
+    'formatter'
+];
 function createBaseOpts(chartCmp, seriesCmp, pointCmp, xAxisCmp, yAxisCmp, element) {
     var opts = {
         chart: {
@@ -69,6 +73,11 @@ function createBaseOpts(chartCmp, seriesCmp, pointCmp, xAxisCmp, yAxisCmp, eleme
             chartCmp[eventName].emit(new ChartEvent_1.ChartEvent(event, this));
         };
     });
+    if (typeof chartCmp.tooltipFormatter === 'function') {
+        opts.tooltip = Object.assign({}, opts.tooltip, { formatter: function () {
+                return chartCmp.tooltipFormatter(this);
+            } });
+    }
     if (seriesCmp) {
         seriesEvents.forEach(function (eventName) {
             opts.plotOptions.series.events[eventName] = opts.plotOptions.series.events[eventName] || function (event) {

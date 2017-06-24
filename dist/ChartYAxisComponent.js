@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ChartYAxisComponent = (function () {
     function ChartYAxisComponent() {
@@ -17,32 +18,32 @@ var ChartYAxisComponent = (function () {
         this.pointInBreak = new core_1.EventEmitter();
         this.setExtremes = new core_1.EventEmitter();
     }
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartYAxisComponent.prototype, "afterBreaks", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartYAxisComponent.prototype, "afterSetExtremes", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartYAxisComponent.prototype, "pointBreak", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartYAxisComponent.prototype, "pointInBreak", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartYAxisComponent.prototype, "setExtremes", void 0);
+    ChartYAxisComponent = __decorate([
+        core_1.Directive({
+            selector: 'yAxis'
+        })
+    ], ChartYAxisComponent);
     return ChartYAxisComponent;
 }());
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartYAxisComponent.prototype, "afterBreaks", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartYAxisComponent.prototype, "afterSetExtremes", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartYAxisComponent.prototype, "pointBreak", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartYAxisComponent.prototype, "pointInBreak", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartYAxisComponent.prototype, "setExtremes", void 0);
-ChartYAxisComponent = __decorate([
-    core_1.Directive({
-        selector: 'yAxis'
-    })
-], ChartYAxisComponent);
 exports.ChartYAxisComponent = ChartYAxisComponent;
 //# sourceMappingURL=ChartYAxisComponent.js.map
