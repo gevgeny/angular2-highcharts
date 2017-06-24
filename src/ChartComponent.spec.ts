@@ -20,6 +20,7 @@ export function main() {
             options: any;
             onCreated: any;
             onEvent: any;
+            tooltipFormatter: any;
         }
 
         beforeEach(() => {

@@ -22,11 +22,12 @@
     - [Point Events](#point-events)
     - [Axis Events](#axis-events)
   - [Dynamic Interaction with Chart Object](#dynamic-interaction-with-chart-object)
+  - [Tooltip Formatter for Chart Object](#tooltip-formatter-for-chart-object)
   - [Highstock](#highstock)
   - [Highmaps](#highmaps)
   - [Add Highcharts Modules](#add-highcharts-modules)
   - [Access to the Highcharts Static API](#access-to-the-highcharts-static-api)
- -  [More Examples](#more-examples) 
+ -  [More Examples](#more-examples)
  - [FAQ](#faq)
  - [License](#license)
 
@@ -46,7 +47,7 @@ import { App } from './App';
 
 @NgModule({
     imports: [
-      BrowserModule, 
+      BrowserModule,
       ChartModule.forRoot(require('highcharts'))
     ],
     declarations: [App],
@@ -115,7 +116,7 @@ export class App {
 ### Handling Events
 Highcharts itself provides bunch of events, and you still can use them with angular2-higcharts via the `options` property of the `chart` component. But it is not an angular way to handle events like this. So that angular2-higcharts provides `EventEmitter<ChartEvent>` wrappers for highcharts events. `ChartEvent` is an angular2-higcharts class which simply wraps original Highcharts events (`chartEvent.originalEvent`) and adds event handler context (`chartEvent.context`) since it differs depending on events.
 
-#### Chart Events 
+#### Chart Events
 
 All the events from the [options.chart.events](http://api.highcharts.com/highcharts#chart.events) are available as output properties of the `chart` component.
 
@@ -130,7 +131,7 @@ onChartSelection (e) {
 ```
 👉 [Live Demo](http://plnkr.co/edit/vdgKVJOymMYhiyqZrPma?p=preview)
 
-#### Series Events 
+#### Series Events
 
 To use series events the same way you need to add the `series` component as a child of your chart. The only purpose of this auxiliary component is to provide access to [options.plotOptions.series.events](http://api.highcharts.com/highcharts#plotOptions.series.events) API
 
@@ -147,7 +148,7 @@ onSeriesMouseOver (e) {
 }
 ```
 👉 [Live Demo](http://plnkr.co/edit/GkaJlk2UJjbTwsPyGXGC?p=preview)
-#### Point Events 
+#### Point Events
 
 Similary you can use the `point` to access to [options.plotOptions.series.point.events](http://api.highcharts.com/highcharts#plotOptions.series.point.events) API.
 ```HTML
@@ -159,7 +160,7 @@ Similary you can use the `point` to access to [options.plotOptions.series.point.
 <p><b>{{point}}</b> is selected<p>
 ```
 👉 [Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
-#### Axis Events 
+#### Axis Events
 
 Similary you can use the `xAxis` or `yAxes` to access to [options.xAxis.events](http://api.highcharts.com/highcharts#xAxis.events) or [options.yAxis.events](http://api.highcharts.com/highcharts#yAxis.events) API.
 ```HTML
@@ -185,12 +186,12 @@ onAfterSetExtremesY (e) {
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
 
-```TypeScript 
+```TypeScript
 @Component({
     selector: 'my-app',
     directives: [CHART_DIRECTIVES],
     template: `
-      <chart [options]="options" 
+      <chart [options]="options"
              (load)="saveInstance($event.context)">
       </chart>
     `
@@ -213,7 +214,38 @@ class AppComponent {
 ```
 👉 [Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
 
-### Highstock 
+### Tooltip Formatter for Chart Object
+
+angular2-higcharts provides possibility to override the native highcharts tooltip formatter (instead of using the highcharts callback)
+
+```TypeScript
+@Component({
+    selector: 'my-app',
+    directives: [CHART_DIRECTIVES],
+    template: `
+      <chart [options]="options"
+             [tooltipFormatter]="formatter">
+      </chart>
+    `
+})
+class AppComponent {
+    constructor() {
+        this.options = {
+          chart: { type: 'spline' },
+          title: { text : 'dynamic data example'}
+          series: [{ data: [2,3,5,8,13] }]
+        };
+    }
+    chart : Object;
+    options: Object;
+    formatter: (point) {
+        return `x: point.x y: point.y`
+    }
+}
+```
+👉 [Live Demo](http://plnkr.co/edit/OQSFSKisIIWAH0megy4d?p=preview)
+
+### Highstock
 ```
 <chart type="StockChart" [options]="options"></chart>
 ```
@@ -224,7 +256,7 @@ Also you need to change your `@NgModule` setup.
 @NgModule({
     ...
     imports: [
-      BrowserModule, 
+      BrowserModule,
       ChartModule.forRoot(
 -       require('highcharts'),
 +       require('highcharts/highstock')
@@ -246,7 +278,7 @@ Also you need to change your `@NgModule` setup.
 @NgModule({
     ...
     imports: [
-      BrowserModule, 
+      BrowserModule,
       ChartModule.forRoot(
 -       require('highcharts'),
 +       require('highcharts/highmaps')
@@ -266,7 +298,7 @@ Any other modules like highcharts-3d, highcharts-exporintg and etc. can be also 
 @NgModule({
     ...
     imports: [
-      BrowserModule, 
+      BrowserModule,
       ChartModule.forRoot(
         require('highcharts'),
 +       require('highcharts/highchart-3d'),
@@ -282,7 +314,7 @@ Check out structure of the `node-modules/highcharts` folder to find necessary mo
 
 
 
-### Access to the Highcharts Static API 
+### Access to the Highcharts Static API
 
 ```diff
 ...
@@ -295,7 +327,7 @@ Highcharts.setOptions({
 @NgModule({
     ...
     imports: [
-      BrowserModule, 
+      BrowserModule,
       ChartModule.forRoot(
 -       require('highcharts'),
 +       Highcharts

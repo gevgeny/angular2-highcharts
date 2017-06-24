@@ -1,4 +1,3 @@
-import { EventEmitter } from '@angular/core';
 import { ChartEvent } from './ChartEvent';
 
 const chartEvents = [
@@ -50,8 +49,12 @@ const yAxisEvents = [
     'setExtremes'
 ];
 
+const tooltipEvents = [
+  'formatter'
+];
+
 export function createBaseOpts(chartCmp, seriesCmp, pointCmp, xAxisCmp, yAxisCmp, element) {
-    let opts = {
+    let opts: any = {
         chart : {
             renderTo : element,
             events :{}
@@ -76,6 +79,13 @@ export function createBaseOpts(chartCmp, seriesCmp, pointCmp, xAxisCmp, yAxisCmp
             chartCmp[eventName].emit(new ChartEvent(event, this));
         }
     });
+
+    if (typeof chartCmp.tooltipFormatter === 'function') {
+      opts.tooltip = Object.assign({}, opts.tooltip, {formatter: function ()  {
+        return chartCmp.tooltipFormatter(this)
+      }});
+    }
+
     if (seriesCmp) {
         seriesEvents.forEach(function (eventName) {
             opts.plotOptions.series.events[eventName] = opts.plotOptions.series.events[eventName] || function (event: any) {

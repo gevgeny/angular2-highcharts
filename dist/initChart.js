@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var deepAssign_1 = require("./deepAssign");
 function initChart(highchartsService, userOpts, baseOpts, type) {
     var Highcharts = highchartsService.getHighchartsStatic();
