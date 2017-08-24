@@ -55,15 +55,29 @@ export function main() {
             });
         };
 
-        it('should create simple chart object', (done) => {
+        it('should create/destroy simple chart object', (done) => {
             create('<chart [options]="options"></chart>').then(fixture => {
                 fixture.componentInstance.options = ['options'];
-                spyOn(highchartsServiceMock.getHighchartsStatic(), 'Chart');
+
+		const RealChart = highchartsServiceMock.getHighchartsStatic().Chart;
+
+		let destroySpy;
+
+                const chartSpy = spyOn(highchartsServiceMock.getHighchartsStatic(), 'Chart')
+                    .and.callFake(opts => {
+			const chart = new RealChart(opts);
+			destroySpy = spyOn(chart, 'destroy');
+			return chart;
+                    });
 
                 fixture.detectChanges();
-                expect(highchartsServiceMock.getHighchartsStatic().Chart).toHaveBeenCalled();
+                expect(chartSpy).toHaveBeenCalled();
+
+
+		fixture.destroy();
+		expect(destroySpy).toHaveBeenCalled();
                 done();
-            })
+            });
         });
 
         it('should emit the "create" event with HighchartsChartObject', (done) => {
