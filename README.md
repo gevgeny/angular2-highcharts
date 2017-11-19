@@ -159,6 +159,7 @@ Similary you can use the `point` to access to [options.plotOptions.series.point.
 <p><b>{{point}}</b> is selected<p>
 ```
 👉 [Live Demo](http://plnkr.co/edit/TpKoJ60n4vyIDWxHNUkg?p=preview)
+
 #### Axis Events 
 
 Similary you can use the `xAxis` or `yAxes` to access to [options.xAxis.events](http://api.highcharts.com/highcharts#xAxis.events) or [options.yAxis.events](http://api.highcharts.com/highcharts#yAxis.events) API.
@@ -181,6 +182,7 @@ onAfterSetExtremesY (e) {
 }
 ```
 👉 [Live Demo](http://plnkr.co/edit/c4ojcIRVOOwq7xmk9kfx?p=preview)
+
 ### Dynamic Interaction with Chart Object
 
 angular2-higcharts provides possibility to interact with native `HighchartsChartObject` chart object.
@@ -232,7 +234,6 @@ Also you need to change your `@NgModule` setup.
     ]
 })
 ```
-
 👉 [Live Demo](http://plnkr.co/edit/2xSewTZ9b213vA0ALmFq?p=preview)
 
 ### Highmaps
@@ -254,7 +255,6 @@ Also you need to change your `@NgModule` setup.
     ],
 })
 ```
-
 👉 [Live Demo](http://plnkr.co/edit/AmDfKwhRhshFn3CPprkk?p=preview)
 
 
@@ -306,17 +306,16 @@ Highcharts.setOptions({
 
 👉 [Live Demo](http://plnkr.co/edit/uCtPFUExmZFG0diOvbXS?p=preview)
 
-##More Examples
+## More Examples
 
 Here are some common charts examples with Webpack integration https://github.com/gevgeny/angular2-highcharts/tree/master/examples/webpack
 
-##FAQ
+## FAQ
 
-#### Why don't my series, title, axes and etc redraw after I update initial options ?
+#### Why don't my series, title, axes and etc redraw after I update initial options?
 
-Because `angular-highcharts` is just a thin wrapper of the [Highcharts](http:/ /www.highcharts.com/) library and doesn't bind to initial options. I understand that you expect more angular-way behaviour like data binding with appropriate redrawing. But it is barely possible to implement it without redundant complications and performance decrease because almost all options can be dynamic. So my idea was to avoid any additional logic more than just a sugar (like events for series and options). In the other hand Highcharts has great [API](http://api.highcharts.com/highcharts#Chart) for dynamic manipulations with chart and `angular-highcharts` [provides you access](#dynamic-interaction-with-chart-object) to the original chart object.
+Because `angular-highcharts` is just a thin wrapper of the [Highcharts](http://www.highcharts.com) library and doesn't bind to initial options. I understand that you expect more angular-way behaviour like data binding with appropriate redrawing. But it is barely possible to implement it without redundant complications and performance decrease because almost all options can be dynamic. So my idea was to avoid any additional logic more than just a sugar (like events for series and options). In the other hand Highcharts has great [API](http://api.highcharts.com/highcharts#Chart) for dynamic manipulations with chart and `angular-highcharts` [provides you access](#dynamic-interaction-with-chart-object) to the original chart object.
 
 ## License
+
 MIT @ Eugene Gluhotorenko
-
-
