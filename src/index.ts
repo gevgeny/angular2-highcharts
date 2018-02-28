@@ -15,17 +15,14 @@ const CHART_DIRECTIVES: any[] = [
     ChartYAxisComponent
 ];
 
+const highchartsStatic:HighchartsStatic = require('highcharts');
+
 @NgModule({
     declarations: [CHART_DIRECTIVES],
     exports: [CHART_DIRECTIVES]
 })
 export class ChartModule {
-    static forRoot(highchartsStatic: HighchartsStatic, ...highchartsModules: Array<Function>): ModuleWithProviders {
-        // Plug highcharts modules
-        highchartsModules.forEach((module) => {
-            module(highchartsStatic)
-        });
-
+    static forRoot(): ModuleWithProviders {
         return {
             ngModule: ChartModule,
             providers: [
