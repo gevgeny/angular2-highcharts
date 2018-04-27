@@ -9,8 +9,8 @@ export class HighchartsStatic {
 export class HighchartsService {
     _highchartsStatice: HighchartsStatic
 
-    constructor(highchartsStatic: HighchartsStatic) {
-        this._highchartsStatice = highchartsStatic;
+    constructor() {
+        this._highchartsStatice = require('highcharts');
     }
 
     getHighchartsStatic() {
