@@ -27,6 +27,18 @@ export class ChartComponent {
     @Output() load = new EventEmitter<ChartEvent>();
     @Output() redraw = new EventEmitter<ChartEvent>();
     @Output() selection = new EventEmitter<ChartEvent>();
+
+    @Input() createPreventDefault: boolean;
+    @Input() clickPreventDefault: boolean;
+    @Input() addSeriesPreventDefault: boolean;
+    @Input() afterPrintPreventDefault: boolean;
+    @Input() beforePrintPreventDefault: boolean;
+    @Input() drilldownPreventDefault: boolean;
+    @Input() drillupPreventDefault: boolean;
+    @Input() loadPreventDefault: boolean;
+    @Input() redrawPreventDefault: boolean;
+    @Input() selectionPreventDefault: boolean;
+
     chart: any;
     element: ElementRef;
     highchartsService : HighchartsService;

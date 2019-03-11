@@ -8,15 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var HighchartsStatic = (function () {
     function HighchartsStatic() {
     }
+    HighchartsStatic = __decorate([
+        core_1.Injectable()
+    ], HighchartsStatic);
     return HighchartsStatic;
 }());
-HighchartsStatic = __decorate([
-    core_1.Injectable()
-], HighchartsStatic);
 exports.HighchartsStatic = HighchartsStatic;
 var HighchartsService = (function () {
     function HighchartsService(highchartsStatic) {
@@ -25,11 +26,11 @@ var HighchartsService = (function () {
     HighchartsService.prototype.getHighchartsStatic = function () {
         return this._highchartsStatice;
     };
+    HighchartsService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [HighchartsStatic])
+    ], HighchartsService);
     return HighchartsService;
 }());
-HighchartsService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [HighchartsStatic])
-], HighchartsService);
 exports.HighchartsService = HighchartsService;
 //# sourceMappingURL=HighchartsService.js.map
