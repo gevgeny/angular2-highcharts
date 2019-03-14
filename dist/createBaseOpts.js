@@ -23,6 +23,9 @@ var seriesEvents = [
 ];
 var pointEvents = [
     'click',
+    'drag',
+    'dragStart',
+    'drop',
     'remove',
     'select',
     'unselect',

@@ -13,6 +13,9 @@ var core_1 = require("@angular/core");
 var ChartPointComponent = (function () {
     function ChartPointComponent() {
         this.click = new core_1.EventEmitter();
+        this.drag = new core_1.EventEmitter();
+        this.dragStart = new core_1.EventEmitter();
+        this.drop = new core_1.EventEmitter();
         this.remove = new core_1.EventEmitter();
         this.select = new core_1.EventEmitter();
         this.unselect = new core_1.EventEmitter();
@@ -24,6 +27,18 @@ var ChartPointComponent = (function () {
         core_1.Output(),
         __metadata("design:type", Object)
     ], ChartPointComponent.prototype, "click", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartPointComponent.prototype, "drag", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartPointComponent.prototype, "dragStart", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartPointComponent.prototype, "drop", void 0);
     __decorate([
         core_1.Output(),
         __metadata("design:type", Object)

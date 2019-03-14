@@ -26,6 +26,9 @@ const seriesEvents = [
 
 const pointEvents = [
     'click',
+    'drag',
+    'dragStart',
+    'drop',
     'remove',
     'select',
     'unselect',
