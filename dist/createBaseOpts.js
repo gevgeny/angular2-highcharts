@@ -1,5 +1,5 @@
 "use strict";
-var ChartEvent_1 = require('./ChartEvent');
+var ChartEvent_1 = require("./ChartEvent");
 var chartEvents = [
     'addSeries',
     'afterPrint',
@@ -29,11 +29,39 @@ var pointEvents = [
     'mouseOver',
     'update'
 ];
-function createBaseOpts(chartCmp, seriesCmp, pointCmp, element) {
+var xAxisEvents = [
+    'afterBreaks',
+    'afterSetExtremes',
+    'pointBreak',
+    'pointInBreak',
+    'setExtremes'
+];
+var yAxisEvents = [
+    'afterBreaks',
+    'afterSetExtremes',
+    'pointBreak',
+    'pointInBreak',
+    'setExtremes'
+];
+function createBaseOpts(chartCmp, seriesCmp, pointCmp, xAxisCmp, yAxisCmp, element) {
     var opts = {
-        chart: { renderTo: element, events: {} },
+        chart: {
+            renderTo: element,
+            events: {}
+        },
         plotOptions: {
-            series: { events: {}, point: { events: {} } }
+            series: {
+                events: {},
+                point: {
+                    events: {}
+                }
+            }
+        },
+        xAxis: {
+            events: {}
+        },
+        yAxis: {
+            events: {}
         }
     };
     chartEvents.forEach(function (eventName) {
@@ -52,6 +80,20 @@ function createBaseOpts(chartCmp, seriesCmp, pointCmp, element) {
         pointEvents.forEach(function (eventName) {
             opts.plotOptions.series.point.events[eventName] = opts.plotOptions.series.point.events[eventName] || function (event) {
                 pointCmp[eventName].emit(new ChartEvent_1.ChartEvent(event, this));
+            };
+        });
+    }
+    if (xAxisCmp) {
+        xAxisEvents.forEach(function (eventName) {
+            opts.xAxis.events[eventName] = opts.xAxis.events[eventName] || function (event) {
+                xAxisCmp[eventName].emit(new ChartEvent_1.ChartEvent(event, this));
+            };
+        });
+    }
+    if (yAxisCmp) {
+        yAxisEvents.forEach(function (eventName) {
+            opts.yAxis.events[eventName] = opts.yAxis.events[eventName] || function (event) {
+                yAxisCmp[eventName].emit(new ChartEvent_1.ChartEvent(event, this));
             };
         });
     }

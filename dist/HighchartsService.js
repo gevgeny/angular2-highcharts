@@ -8,17 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var Highcharts_1 = require('./Highcharts');
-var core_1 = require('@angular/core');
-var HighchartsService = (function () {
-    function HighchartsService() {
-        this.Highcharts = Highcharts_1.Highcharts;
+var core_1 = require("@angular/core");
+var HighchartsStatic = (function () {
+    function HighchartsStatic() {
     }
-    HighchartsService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], HighchartsService);
+    return HighchartsStatic;
+}());
+HighchartsStatic = __decorate([
+    core_1.Injectable()
+], HighchartsStatic);
+exports.HighchartsStatic = HighchartsStatic;
+var HighchartsService = (function () {
+    function HighchartsService(highchartsStatic) {
+        this._highchartsStatice = highchartsStatic;
+    }
+    HighchartsService.prototype.getHighchartsStatic = function () {
+        return this._highchartsStatice;
+    };
     return HighchartsService;
 }());
+HighchartsService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [HighchartsStatic])
+], HighchartsService);
 exports.HighchartsService = HighchartsService;
 //# sourceMappingURL=HighchartsService.js.map

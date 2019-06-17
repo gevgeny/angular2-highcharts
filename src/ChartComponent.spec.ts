@@ -1,53 +1,67 @@
-import {
-    describe,
-    expect,
-    inject,
-    it,
-    tick,
-    beforeEach,
-    setBaseTestProviders
-} from '@angular/core/testing';
-import {
-	ComponentFixture,
-	TestComponentBuilder
-} from '@angular/compiler/testing';
-
-import { provide, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { ChartComponent } from './ChartComponent';
-import { CHART_DIRECTIVES } from './index';
+import { ChartPointComponent } from './ChartPointComponent';
+import { ChartSeriesComponent } from './ChartSeriesComponent';
+import { ChartXAxisComponent } from './ChartXAxisComponent';
+import { ChartYAxisComponent } from './ChartYAxisComponent';
 import { HighchartsService } from './HighchartsService';
 import { HighchartsServiceMock, HighchartsChartObjectMock, ChartEventEmitter } from './Mocks';
 
 export function main() {
     describe('ChartComponent', () => {
-        let tcb;
-        let highchartsServiceMock;
+        let highchartsServiceMock : any;
 
-        let create = (template : string) => {
-            @Component({
-                selector : 'test-component',
-                template : template,
-                directives : [CHART_DIRECTIVES]
-            })
-            class TestComponent { }
+        @Component({
+            selector : 'test-component',
+            template : ''
+        })
+        class TestComponent {
+            options: any;
+            onCreated: any;
+            onEvent: any;
+        }
 
-            return tcb.createAsync(TestComponent);
-        };
-
-        beforeEach(inject([TestComponentBuilder], _tcb => {
+        beforeEach(() => {
             highchartsServiceMock = new HighchartsServiceMock();
-            tcb = _tcb.overrideProviders(ChartComponent, [
-                provide(HighchartsService, { useValue: highchartsServiceMock })
-            ]);
-        }));
+            TestBed.configureTestingModule({
+                declarations: [
+                    TestComponent,
+                    ChartComponent,
+                    ChartPointComponent,
+                    ChartSeriesComponent,
+                    ChartXAxisComponent,
+                    ChartYAxisComponent,
+                ],
+                schemas: [
+                    CUSTOM_ELEMENTS_SCHEMA,
+                ],
+            });
+        });
+
+        let create = (template: string) => {
+            return TestBed.overrideComponent(TestComponent, {
+                set: {
+                    template: template
+                }
+            }).overrideComponent(ChartComponent, {
+                set: {
+                    providers: [
+                        { provide: HighchartsService, useValue: highchartsServiceMock }
+                    ]
+                }
+            }).compileComponents().then(() => {
+                return TestBed.createComponent(TestComponent);
+            });
+        };
 
         it('should create simple chart object', (done) => {
             create('<chart [options]="options"></chart>').then(fixture => {
                 fixture.componentInstance.options = ['options'];
-                spyOn(highchartsServiceMock.Highcharts, 'Chart');
+                spyOn(highchartsServiceMock.getHighchartsStatic(), 'Chart');
 
                 fixture.detectChanges();
-                expect(highchartsServiceMock.Highcharts.Chart).toHaveBeenCalled();
+                expect(highchartsServiceMock.getHighchartsStatic().Chart).toHaveBeenCalled();
                 done();
             })
         });
@@ -378,6 +392,150 @@ export function main() {
                 });
             });
         });
+
+        describe('should emit Highcharts xAxis event', () => {
+            it('"afterBreaks"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (afterBreaks)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('afterBreaks');
+                });
+            });
+
+            it('"afterSetExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (afterSetExtremes)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('afterSetExtremes');
+                });
+            });
+
+            it('"pointBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (pointBreak)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('pointBreak');
+                });
+            });
+
+            it('"pointInBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (pointInBreak)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('pointInBreak');
+                });
+            });
+
+            it('"setExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <xAxis (setExtremes)="onEvent()">
+                    </xAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitXAxisEvent('setExtremes');
+                });
+            });
+        });
+
+        describe('should emit Highcharts yAxis event', () => {
+            it('"afterBreaks"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (afterBreaks)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('afterBreaks');
+                });
+            });
+
+            it('"afterSetExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (afterSetExtremes)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('afterSetExtremes');
+                });
+            });
+
+            it('"pointBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (pointBreak)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('pointBreak');
+                });
+            });
+
+            it('"pointInBreak"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (pointInBreak)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('pointInBreak');
+                });
+            });
+
+            it('"setExtremes"', (done) => {
+                create(`
+                <chart [options]="options">
+                    <yAxis (setExtremes)="onEvent()">
+                    </yAxis>
+                </chart>
+            `).then(fixture => {
+                    fixture.componentInstance.onEvent = () => done();
+                    fixture.componentInstance.options = ['options'];
+                    fixture.detectChanges();
+                    ChartEventEmitter.emitYAxisEvent('setExtremes');
+                });
+            });
+        });
+
     });
 }
-

@@ -1,6 +1,6 @@
 export class ChartEvent {
     originalEvent : Event;
-    context : HighchartsChartObject | HighchartsSeriesObject | HighchartsPointObject | HighchartsAxisObject;
+    context : any;
     constructor (event, context) {
         this.originalEvent = event;
         this.context = context;

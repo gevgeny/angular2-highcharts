@@ -1,6 +1,8 @@
 import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from '@angular/core';
 
 import { ChartSeriesComponent } from './ChartSeriesComponent';
+import { ChartXAxisComponent } from './ChartXAxisComponent';
+import { ChartYAxisComponent } from './ChartYAxisComponent';
 import { HighchartsService } from './HighchartsService';
 import { ChartEvent } from './ChartEvent';
 import { initChart } from './initChart';
@@ -8,12 +10,14 @@ import { createBaseOpts } from './createBaseOpts';
 
 @Component({
     selector: 'chart',
-    template: '',
+    template: '&nbsp;',
     providers: [HighchartsService],
 })
 export class ChartComponent {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
-    @Output() create = new EventEmitter<HighchartsChartObject>();
+    @ContentChild(ChartXAxisComponent) xAxis: ChartXAxisComponent;
+    @ContentChild(ChartYAxisComponent) yAxis: ChartYAxisComponent;
+    @Output() create = new EventEmitter<any>();
     @Output() click = new EventEmitter<ChartEvent>();
     @Output() addSeries = new EventEmitter<ChartEvent>();
     @Output() afterPrint = new EventEmitter<ChartEvent>();
@@ -23,13 +27,13 @@ export class ChartComponent {
     @Output() load = new EventEmitter<ChartEvent>();
     @Output() redraw = new EventEmitter<ChartEvent>();
     @Output() selection = new EventEmitter<ChartEvent>();
-    chart: HighchartsChartObject;
+    chart: any;
     element: ElementRef;
     highchartsService : HighchartsService;
     private userOpts: any;
     private baseOpts: any;
     @Input() type: string = 'Chart';
-    @Input() set options(opts : HighchartsOptions) {
+    @Input() set options(opts : any) {
         this.userOpts = opts;
         this.init();
     };
@@ -42,7 +46,7 @@ export class ChartComponent {
     }
 
     ngAfterViewInit() {
-        this.baseOpts = createBaseOpts(this, this.series, this.series ? this.series.point : null, this.element.nativeElement);
+        this.baseOpts = createBaseOpts(this, this.series, this.series ? this.series.point : null, this.xAxis, this.yAxis, this.element.nativeElement);
         this.init();
     }
 

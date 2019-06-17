@@ -1,8 +1,11 @@
+import { ModuleWithProviders } from '@angular/core';
 import { ChartComponent } from './ChartComponent';
-export { ChartComponent };
 import { ChartSeriesComponent } from './ChartSeriesComponent';
-export { ChartSeriesComponent };
 import { ChartPointComponent } from './ChartPointComponent';
-export { ChartPointComponent };
-export { Highcharts } from './Highcharts';
-export declare const CHART_DIRECTIVES: any[];
+import { ChartXAxisComponent } from './ChartXAxisComponent';
+import { ChartYAxisComponent } from './ChartYAxisComponent';
+import { HighchartsStatic } from './HighchartsService';
+export declare class ChartModule {
+    static forRoot(highchartsStatic: HighchartsStatic, ...highchartsModules: Array<Function>): ModuleWithProviders;
+}
+export { ChartComponent, ChartSeriesComponent, ChartPointComponent, ChartXAxisComponent, ChartYAxisComponent };

@@ -24,6 +24,27 @@ System.config({
     baseURL: '/base/'
 });
 
+var packages = {
+    'rxjs': {
+        defaultExtension: 'js'
+    },
+};
+var packageNames2 = [
+    'common',
+    'compiler',
+    'core',
+    'http',
+    'platform-browser-dynamic',
+    'platform-browser',
+    'platform-server'
+];
+
+// add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
+packageNames2.forEach(function(pkgName) {
+    packages['@angular/'+pkgName] = { main: 'bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
+    packages['@angular/'+pkgName+'/testing'] = { main: '../bundles/' + pkgName + '-testing.umd.js', defaultExtension: 'js' };
+});
+
 System.config({
     defaultJSExtensions: true,
     map: {
@@ -31,46 +52,10 @@ System.config({
         //'@angular/core/testing': './node_modules/@angular/core/testing',
         '@angular': 'node_modules/@angular',
         // Just stubbing the module with any simple file.
-        'highcharts/highstock.src' : 'dist/stub'
+        'highcharts' : 'dist/stub'
 
     },
-    packages: {
-        '@angular/core': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/compiler': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/common': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/http': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/platform-browser': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/platform-browser-dynamic': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/router-deprecated': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/router': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        'rxjs': {
-            defaultExtension: 'js'
-        }
-    }
+    packages: packages
 });
 
 Promise.all([
@@ -81,13 +66,15 @@ Promise.all([
     var testing = providers[0];
     var testingBrowser = providers[1];
 
-    testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-        testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
-
+    testing.TestBed.initTestEnvironment(
+        testingBrowser.BrowserDynamicTestingModule,
+        testingBrowser.platformBrowserDynamicTesting()
+    );
 }).then(function() {
         return Promise.all(
             Object.keys(window.__karma__.files) // All files served by Karma.
                 .filter(onlySpecFiles)
+                .filter(isBuiltFile)
                 .map(file2moduleName)
                 .map(function(path) {
                     return System.import(path).then(function(module) {
@@ -112,6 +99,14 @@ function onlySpecFiles(path) {
         path.match(new RegExp(__karma__.config.files)) : true;
 
     return patternMatched && /[\.|_]spec\.js$/.test(path);
+}
+
+function isJsFile(path) {
+    return path.slice(-3) == '.js';
+}
+
+function isBuiltFile(path) {
+    return isJsFile(path) && (path.indexOf('/base/dist/') > -1);
 }
 
 // Normalize paths to module names.

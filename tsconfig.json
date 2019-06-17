@@ -8,14 +8,22 @@
     "removeComments": true,
     "sourceMap": true,
     "outDir": "dist",
+    "declarationDir": "dist",
     "declaration": true
   },
+  "compileOnSave": true,
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "examples",
     "index.d.ts",
     "node_modules",
-    "dist",
-    "typings/main",
-    "typings/main.d.ts"
-  ]
+    "dist"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "dist/",
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
 }
