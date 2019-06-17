@@ -1,3 +1,4 @@
+# ⚠️ Not supported anymore. <br> Consider using [the offical Highcharts wrapper for Angular]( https://github.com/highcharts/highcharts-angular)
 # angular2-highcharts
 
 > Highcharts chart components for Angular apps. 👉 [Live Demo](http://plnkr.co/edit/AJwozFWVR7TkQZnt05dN?p=preview)
