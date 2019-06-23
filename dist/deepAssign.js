@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var isObj = function (x) {
     var type = typeof x;
     return x !== null && (type === 'object' || type === 'function');
