@@ -270,7 +270,7 @@ Any other modules like highcharts-3d, highcharts-exporintg and etc. can be also 
       BrowserModule, 
       ChartModule.forRoot(
         require('highcharts'),
-+       require('highcharts/highchart-3d'),
++       require('highcharts/highcharts-3d'),
 +       require('highcharts/modules/exporting')
       )
     ],
