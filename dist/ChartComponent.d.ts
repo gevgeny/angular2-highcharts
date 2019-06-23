@@ -18,6 +18,16 @@ export declare class ChartComponent {
     load: EventEmitter<ChartEvent>;
     redraw: EventEmitter<ChartEvent>;
     selection: EventEmitter<ChartEvent>;
+    createPreventDefault: boolean;
+    clickPreventDefault: boolean;
+    addSeriesPreventDefault: boolean;
+    afterPrintPreventDefault: boolean;
+    beforePrintPreventDefault: boolean;
+    drilldownPreventDefault: boolean;
+    drillupPreventDefault: boolean;
+    loadPreventDefault: boolean;
+    redrawPreventDefault: boolean;
+    selectionPreventDefault: boolean;
     chart: any;
     element: ElementRef;
     highchartsService: HighchartsService;
@@ -25,7 +35,7 @@ export declare class ChartComponent {
     private baseOpts;
     type: string;
     options: any;
-    private init();
+    private init;
     ngAfterViewInit(): void;
     constructor(element: ElementRef, highchartsService: HighchartsService);
 }

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ChartEvent_1 = require("./ChartEvent");
 var chartEvents = [
     'addSeries',
@@ -22,6 +23,9 @@ var seriesEvents = [
 ];
 var pointEvents = [
     'click',
+    'drag',
+    'dragStart',
+    'drop',
     'remove',
     'select',
     'unselect',
@@ -67,6 +71,8 @@ function createBaseOpts(chartCmp, seriesCmp, pointCmp, xAxisCmp, yAxisCmp, eleme
     chartEvents.forEach(function (eventName) {
         opts.chart.events[eventName] = opts.chart.events[eventName] || function (event) {
             chartCmp[eventName].emit(new ChartEvent_1.ChartEvent(event, this));
+            if (chartCmp[eventName + "PreventDefault"])
+                return false;
         };
     });
     if (seriesCmp) {

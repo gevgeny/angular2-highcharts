@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ChartPointComponent_1 = require("./ChartPointComponent");
 var ChartSeriesComponent = (function () {
@@ -21,48 +22,48 @@ var ChartSeriesComponent = (function () {
         this.mouseOut = new core_1.EventEmitter();
         this.show = new core_1.EventEmitter();
     }
+    __decorate([
+        core_1.ContentChild(ChartPointComponent_1.ChartPointComponent),
+        __metadata("design:type", ChartPointComponent_1.ChartPointComponent)
+    ], ChartSeriesComponent.prototype, "point", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "click", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "afterAnimate", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "checkboxClick", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "hide", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "legendItemClick", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "mouseOver", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "mouseOut", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], ChartSeriesComponent.prototype, "show", void 0);
+    ChartSeriesComponent = __decorate([
+        core_1.Directive({
+            selector: 'series'
+        })
+    ], ChartSeriesComponent);
     return ChartSeriesComponent;
 }());
-__decorate([
-    core_1.ContentChild(ChartPointComponent_1.ChartPointComponent),
-    __metadata("design:type", ChartPointComponent_1.ChartPointComponent)
-], ChartSeriesComponent.prototype, "point", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "click", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "afterAnimate", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "checkboxClick", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "hide", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "legendItemClick", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "mouseOver", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "mouseOut", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ChartSeriesComponent.prototype, "show", void 0);
-ChartSeriesComponent = __decorate([
-    core_1.Directive({
-        selector: 'series'
-    })
-], ChartSeriesComponent);
 exports.ChartSeriesComponent = ChartSeriesComponent;
 //# sourceMappingURL=ChartSeriesComponent.js.map

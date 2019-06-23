@@ -26,6 +26,9 @@ const seriesEvents = [
 
 const pointEvents = [
     'click',
+    'drag',
+    'dragStart',
+    'drop',
     'remove',
     'select',
     'unselect',
@@ -74,6 +77,7 @@ export function createBaseOpts(chartCmp, seriesCmp, pointCmp, xAxisCmp, yAxisCmp
     chartEvents.forEach(function (eventName) {
         opts.chart.events[eventName] = opts.chart.events[eventName] || function (event: any) {
             chartCmp[eventName].emit(new ChartEvent(event, this));
+            if(chartCmp[`${eventName}PreventDefault`]) return false;
         }
     });
     if (seriesCmp) {

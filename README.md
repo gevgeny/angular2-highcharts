@@ -120,6 +120,8 @@ Highcharts itself provides bunch of events, and you still can use them with angu
 
 All the events from the [options.chart.events](http://api.highcharts.com/highcharts#chart.events) are available as output properties of the `chart` component.
 
+To prevent the default action, set `eventNamePreventDefault` to a truthy value -- for example: `<chart [selectionPreventDefault]="true" ....>`
+
 ```HTML
 <chart [options]="options" (selection)="onChartSelection($event)"> </chart>
 ```
