@@ -11,6 +11,7 @@ import { createBaseOpts } from './createBaseOpts';
 @Component({
     selector: 'chart',
     template: '&nbsp;',
+    styles: [':host {display: block;}'],
     providers: [HighchartsService],
 })
 export class ChartComponent {
