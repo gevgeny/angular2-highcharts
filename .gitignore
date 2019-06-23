@@ -1,5 +1,6 @@
 npm-debug.log
 node_modules
+dist
 .idea
 typings
 src/*.ngfactory.ts

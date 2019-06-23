@@ -5,3 +5,4 @@ src
 .travis.yml
 karma.conf.js
 karma-test-shim.js
+npm-shrinkwrap.json
