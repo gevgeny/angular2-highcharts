@@ -28,6 +28,8 @@ export class HighchartsChartObjectMock {
     constructor (_opts) {
         opts = _opts;
     }
+
+    public destroy() {}
 }
 const highchartsStatic =  {
     Chart : HighchartsChartObjectMock,

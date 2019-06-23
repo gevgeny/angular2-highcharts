@@ -1,4 +1,4 @@
-import { Input, ElementRef, Component, Output, EventEmitter, ContentChild } from '@angular/core';
+import { AfterViewInit, Input, ElementRef, Component, OnDestroy, Output, EventEmitter, ContentChild } from '@angular/core';
 
 import { ChartSeriesComponent } from './ChartSeriesComponent';
 import { ChartXAxisComponent } from './ChartXAxisComponent';
@@ -13,7 +13,7 @@ import { createBaseOpts } from './createBaseOpts';
     template: '&nbsp;',
     providers: [HighchartsService],
 })
-export class ChartComponent {
+export class ChartComponent implements AfterViewInit, OnDestroy {
     @ContentChild(ChartSeriesComponent) series: ChartSeriesComponent;
     @ContentChild(ChartXAxisComponent) xAxis: ChartXAxisComponent;
     @ContentChild(ChartYAxisComponent) yAxis: ChartYAxisComponent;
@@ -45,9 +45,13 @@ export class ChartComponent {
         }
     }
 
-    ngAfterViewInit() {
+    public ngAfterViewInit() {
         this.baseOpts = createBaseOpts(this, this.series, this.series ? this.series.point : null, this.xAxis, this.yAxis, this.element.nativeElement);
         this.init();
+    }
+
+    public ngOnDestroy() {
+	if(this.chart) this.chart.destroy();
     }
 
     constructor(element: ElementRef, highchartsService : HighchartsService) {
