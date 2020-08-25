@@ -51,6 +51,6 @@
   },
   "dependencies": {
     "@types/highcharts": "^4.2.47",
-    "highcharts": "^5.0.7"
+    "highcharts": "^8.2.0"
   }
 }
